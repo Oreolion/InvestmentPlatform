@@ -120,7 +120,7 @@ footer .p {
   margin-right: 8rem;
   margin-bottom: 3rem;
   font-size: 1.4rem;
-  color: green;
+  color: #e67e22;
 }
 
 @media (max-width: 768px) {
