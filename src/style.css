@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   --orange: #e67e22;
   --black: #333;
@@ -16,7 +15,8 @@
   outline: none;
   border: none;
   text-decoration: none;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: lighter;
 }
 
@@ -40,7 +40,7 @@ section {
 }
 
 button {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(215, 215, 215, 0.2);
   color: #fff;
   padding: 1.5rem;
   border-radius: 4rem;
@@ -48,8 +48,8 @@ button {
   font-weight: bold;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
   &:hover {
-    background: rgba(256, 256, 256, 0.8);
-    color: #000;
-    border: 4px solid #000;
+    background: transparent;
+    color: #fff;
+    border: 4px solid #fff;
   }
 }

@@ -41,17 +41,16 @@
         <li>
           <router-link class="li" to="/">Trading Programme</router-link>
         </li>
+
         <li>
-          <router-link class="li" to="/">Copy Trading</router-link>
+          <router-link class="li" to="/">How To Buy Crypto</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Contact</router-link>
         </li>
         <li><router-link class="li" to="/login">Sign in</router-link></li>
         <li>
-          <router-link class="li" to="/signup"
-            ><button>Get Started</button></router-link
-          >
+          <router-link to="/signup"><button>Get Started</button></router-link>
         </li>
       </ul>
     </nav>
@@ -70,8 +69,9 @@
         <li>
           <router-link class="li" to="/">Trading Programme</router-link>
         </li>
+
         <li>
-          <router-link class="li" to="/">Copy Trading</router-link>
+          <router-link class="li" to="/">How To Buy Crypto</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Contact</router-link>
@@ -102,12 +102,12 @@ let toggleMenu = () => {
   top: 0;
   left: 0;
   right: 0;
-  background: #000;
+  background-color: rgba(1, 68, 119, 0.6);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 4%;
-  height: 9rem;
+  height: 11rem;
 }
 
 .header .logo {
@@ -166,7 +166,8 @@ h3 span {
 }
 
 .header button {
-  background-color: green;
+  background: rgba(215, 215, 215, 0.2);
+
   &:hover {
     color: #e67e22;
   }
@@ -233,8 +234,10 @@ svg {
   cursor: pointer;
   color: #fff;
   font-weight: bold;
+  padding: 4rem 1rem;
   &:hover {
     color: #e67e22;
+    border: 1px solid #e67e22;
   }
 }
 
@@ -282,9 +285,7 @@ svg {
   .navlist li:nth-child(6) {
     display: none;
   }
-  .navlist li:nth-child(3) {
-    display: none;
-  }
+
   .navlist li:nth-child(4) {
     width: 13rem;
   }
