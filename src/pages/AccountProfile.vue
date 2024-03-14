@@ -1,0 +1,14 @@
+<template>
+    <div>
+        this is the account profile page
+
+    </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
