@@ -40,7 +40,7 @@
     </div>
   </section>
   <section class="lowersection">
-    <h3>signalystics means driving change for the better for everyone</h3>
+    <h3>Fidelity Broker Corps means driving change for the better for everyone</h3>
     <div class="innercontainer">
       <div class="imgbox">
         <img src="../assets/pexels-photo.webp" alt="" />
@@ -112,7 +112,7 @@ h3 {
 }
 
 .lowersection {
-  height: 69rem;
+  height: 74rem;
 }
 
 .innercontainer {
@@ -161,14 +161,25 @@ h6 {
   .innercontainer {
     flex-direction: column;
     gap: 2rem;
+    height: 45rem;
   }
 
   .imgbox {
-    height: 40rem;
+    height: 30rem;
   }
 
   .rightbox {
-    margin-top: 3rem;
+    margin-top: 1rem;
+  }
+
+  .rightbox p {
+    padding: 2rem;
+    margin-bottom: 0rem;
+  }
+
+  h6 {
+    padding: 0 2rem;
+    font-size: 2rem;
   }
 }
 </style>

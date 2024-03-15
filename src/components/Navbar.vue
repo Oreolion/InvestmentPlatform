@@ -33,7 +33,7 @@
           <router-link class="li" to="/">Home</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">About</router-link>
+          <router-link class="li" to="/about">About</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Insight</router-link>
@@ -46,7 +46,7 @@
           <router-link class="li" to="/">How To Buy Crypto</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Contact</router-link>
+          <router-link class="li" to="/contact">Contact</router-link>
         </li>
         <li><router-link class="li" to="/login">Sign in</router-link></li>
         <li>
@@ -61,7 +61,7 @@
           <router-link class="li" to="/">Home</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">About</router-link>
+          <router-link class="li" to="/about">About</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Insight</router-link>
@@ -74,7 +74,7 @@
           <router-link class="li" to="/">How To Buy Crypto</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Contact</router-link>
+          <router-link class="li" to="/contact">Contact</router-link>
         </li>
         <li><router-link class="li" to="/login">Sign in</router-link></li>
         <li>

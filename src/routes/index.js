@@ -6,6 +6,8 @@ import NotFound from "../pages/NotFound.vue";
 import SignupPageVue from "../pages/Signup.vue";
 import LoginVue from "../pages/Login.vue";
 import AccountProfile from "../pages/AccountProfile.vue";
+import About from "../pages/About.vue";
+import ContactPage from "../pages/ContactPage.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -16,6 +18,8 @@ const router = createRouter({
       component: LandingPage,
     },
 
+    { path: "/about", name: "about-page", component: About },
+    { path: "/contact", name: "contact-page", component: ContactPage },
     { path: "/login", name: "login-page", component: LoginVue },
     { path: "/signup", name: "signup-page", component: SignupPageVue },
     {
