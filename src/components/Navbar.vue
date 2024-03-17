@@ -36,7 +36,7 @@
           <router-link class="li" to="/about">About</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Insight</router-link>
+          <router-link class="li" to="/insight">Insight</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Trading Programme</router-link>
@@ -64,7 +64,7 @@
           <router-link class="li" to="/about">About</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Insight</router-link>
+          <router-link class="li" to="/insight">Insight</router-link>
         </li>
         <li>
           <router-link class="li" to="/">Trading Programme</router-link>

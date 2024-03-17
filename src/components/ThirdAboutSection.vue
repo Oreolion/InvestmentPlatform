@@ -78,6 +78,7 @@ section {
 .box:last-child h5 {
   font-size: 2.5rem;
   text-align: center;
+  font-weight: bold;
   margin: 0 auto;
   margin-bottom: 3rem;
 }
