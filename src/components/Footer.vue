@@ -83,6 +83,7 @@ h3 span {
 
 footer {
   background: #222;
+  min-height: 40rem;
 }
 
 .inner-footer {

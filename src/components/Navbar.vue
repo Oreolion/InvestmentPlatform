@@ -39,11 +39,11 @@
           <router-link class="li" to="/insight">Insight</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Trading Programme</router-link>
+          <router-link class="li" to="/program">Trading Programme</router-link>
         </li>
 
         <li>
-          <router-link class="li" to="/">How To Buy Crypto</router-link>
+          <router-link class="li" to="/howtobuy">How To Buy Crypto</router-link>
         </li>
         <li>
           <router-link class="li" to="/contact">Contact</router-link>
@@ -67,11 +67,11 @@
           <router-link class="li" to="/insight">Insight</router-link>
         </li>
         <li>
-          <router-link class="li" to="/">Trading Programme</router-link>
+          <router-link class="li" to="/program">Trading Programme</router-link>
         </li>
 
         <li>
-          <router-link class="li" to="/">How To Buy Crypto</router-link>
+          <router-link class="li" to="/howtobuy">How To Buy Crypto</router-link>
         </li>
         <li>
           <router-link class="li" to="/contact">Contact</router-link>

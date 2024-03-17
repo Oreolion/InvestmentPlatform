@@ -9,6 +9,8 @@ import AccountProfile from "../pages/AccountProfile.vue";
 import About from "../pages/About.vue";
 import ContactPage from "../pages/ContactPage.vue";
 import InsightPage from "../pages/InsightPage.vue";
+import HowToBuyPage from "../pages/HowToBuyPage.vue";
+import TradingProgramPage from "../pages/TradingProgramPage.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -22,6 +24,8 @@ const router = createRouter({
     { path: "/about", name: "about-page", component: About },
     { path: "/contact", name: "contact-page", component: ContactPage },
     { path: "/insight", name: "insight-page", component: InsightPage },
+    { path: "/howtobuy", name: "how-to-buy-page", component: HowToBuyPage },
+    { path: "/program", name: "trading-programme-page", component: TradingProgramPage },
     { path: "/login", name: "login-page", component: LoginVue },
     { path: "/signup", name: "signup-page", component: SignupPageVue },
     {
