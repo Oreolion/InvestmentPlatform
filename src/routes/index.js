@@ -25,7 +25,7 @@ const router = createRouter({
     { path: "/contact", name: "contact-page", component: ContactPage },
     { path: "/insight", name: "insight-page", component: InsightPage },
     { path: "/howtobuy", name: "how-to-buy-page", component: HowToBuyPage },
-    { path: "/program", name: "trading-programme-page", component: TradingProgramPage },
+    { path: "/program", name: "trading-program-page", component: TradingProgramPage },
     { path: "/login", name: "login-page", component: LoginVue },
     { path: "/signup", name: "signup-page", component: SignupPageVue },
     {
