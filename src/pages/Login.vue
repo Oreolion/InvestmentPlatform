@@ -28,7 +28,7 @@
             </label>
 
             <div class="btn-box">
-              <button @click="handleSignIn">Login account</button>
+              <button @click="handleLogin">Login account</button>
             </div>
           </div>
           <div class="navigatepagebtn-box">
@@ -53,29 +53,75 @@ import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 import { useRouter } from "vue-router";
 import Footer from "../components/Footer.vue";
-
-const userRules = {
-  email: { required, email },
-  password: { required, minLength: minLength(8) },
-  confirmPassword: {
-    required,
-    minLength: minLength(8),
-    sameAs: sameAs(computed(() => user.password)),
-  },
-};
-
-const router = useRouter();
+import { auth } from "../utils/firebase";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 const user = reactive({
   email: "",
   password: "",
-  confirmPassword: "",
-  firstname: "",
-  lastname: "",
-  typeOfUser: "",
 });
 
+const userRules = {
+  email: { required, email },
+  password: { required, minLength: minLength(8) },
+};
+
 const v$ = useVuelidate(userRules, user);
+
+const router = useRouter();
+
+const handleLogin = async () => {
+  const isValid = await v$.value.$validate();
+  if (!isValid) return;
+  try {
+    const response = await signInWithEmailAndPassword(
+      auth,
+      user.email,
+      user.password
+    );
+    console.log(response);
+    if (response.user) {
+      localStorage.setItem("isLoggedIn", "true");
+
+      router.push("/dashboard");
+      toast.success("You are Logged In", {
+        autoClose: 8000,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message);
+  }
+};
+
+const provider = new GoogleAuthProvider();
+
+const handleSignupWithGoogle = async () => {
+  try {
+    await signInWithPopup(auth, provider);
+    router.push("/dashboard");
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    // const credential = await GoogleAuthProvider.credentialFromResult(result);
+    // const token = credential.accessToken;
+    // The signed-in user info.
+    // const user = result.user;
+    // console.log(user)
+  } catch (error) {
+    console.log(error);
+    // Handle Errors here.
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // The email of the user's account used.
+    // const email = error.customData.email;
+    // The AuthCredential type that was used.
+    // const credential = GoogleAuthProvider.credentialFromError(error);
+  }
+};
+
 </script>
 
 <style scoped>

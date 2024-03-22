@@ -15,11 +15,17 @@
             <div class="name">
               <label for="firstname">
                 First name: <br />
-                <input v-model="user.firstname" type="text" />
+                <input v-model="v$.firstname.$model" type="text" />
+                <small v-if="v$.firstname.$errors.length">{{
+                v$.firstname.$errors[0].$message
+              }}</small>
               </label>
               <label for="lastname">
                 Last name: <br />
-                <input v-model="user.lastname" type="text" />
+                <input v-model="v$.lastname.$model" type="text" />
+                <small v-if="v$.lastname.$errors.length">{{
+                v$.lastname.$errors[0].$message
+              }}</small>
               </label>
             </div>
             <label for="phone">
@@ -58,10 +64,41 @@
               <button @click="handleSignUp">Create account</button>
               <button @click="handleSignupWithGoogle">
                 Sign up with
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  version="1.1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 48 48"
+                  enable-background="new 0 0 48 48"
+                  font-size="20px"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
-                    d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                  />
+                    fill="#FFC107"
+                    d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
+	c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
+	c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+                  ></path>
+                  <path
+                    fill="#FF3D00"
+                    d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657
+	C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+                  ></path>
+                  <path
+                    fill="#4CAF50"
+                    d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36
+	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+                  ></path>
+                  <path
+                    fill="#1976D2"
+                    d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
+	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+                  ></path>
                 </svg>
               </button>
             </div>
@@ -88,8 +125,19 @@ import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 import { useRouter } from "vue-router";
 import Footer from "../components/Footer.vue";
+import { auth } from "../utils/firebase.js";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../utils/firebase";
+
 
 const userRules = {
+    firstname: { required },
+  lastname: { required },
   email: { required, email },
   password: { required, minLength: minLength(8) },
   confirmPassword: {
@@ -109,10 +157,74 @@ const user = reactive({
   lastname: "",
   username: "",
   phoneNumber: "",
-  typeOfUser: "",
+  country: "",
 });
 
 const v$ = useVuelidate(userRules, user);
+
+const handleSignUp = async () => {
+  const isValid = await v$.value.$validate();
+  if (!isValid) return;
+  try {
+    const response = await createUserWithEmailAndPassword(
+      auth,
+      user.email,
+      user.password
+    );
+    console.log(response);
+    if (response.user) {
+      localStorage.setItem("isLoggedIn", "true");
+      await createUser({
+        userId: response.user.uid,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        country: user.country,
+        phoneNumber: user.phoneNumber,
+      });
+
+      router.push("/dashboard");
+      toast.success("You are Logged In");
+    }
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message);
+  }
+};
+
+const createUser = async (data) => {
+  try {
+    await setDoc(doc(db, "users", data.userId), { ...data });
+    console.log(data)
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+const handleSignupWithGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+    router.push("/dashboard");
+    toast.success("You are Logged In");
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    // const credential = await GoogleAuthProvider.credentialFromResult(result);
+    // const token = credential.accessToken;
+    // The signed-in user info.
+    // const user = result.user;
+    // console.log(user)
+  } catch (error) {
+    // Handle Errors here.
+    console.log(error);
+    toast.error(error.message);
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // The email of the user's account used.
+    // const email = error.customData.email;
+    // The AuthCredential type that was used.
+    // const credential = GoogleAuthProvider.credentialFromError(error);
+  }
+};
 </script>
 
 <style scoped>
