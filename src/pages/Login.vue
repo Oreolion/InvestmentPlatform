@@ -87,7 +87,7 @@ const handleLogin = async () => {
     if (response.user) {
       localStorage.setItem("isLoggedIn", "true");
 
-      router.push("/dashboard");
+      router.push("/dashboard", { ...history.state});
       toast.success("You are Logged In", {
         autoClose: 8000,
       });
