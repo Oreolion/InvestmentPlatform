@@ -2,7 +2,6 @@
     <DashboardNav></DashboardNav>
     <HeaderAndNav></HeaderAndNav>
     <div>
-        this is the account profile page
 
     </div>
 </template>
@@ -14,6 +13,6 @@ import HeaderAndNav from '../components/HeaderAndNav.vue';
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

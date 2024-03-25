@@ -2,18 +2,17 @@
     <DashboardNav></DashboardNav>
     <HeaderAndNav></HeaderAndNav>
     <div>
-        this is the account profile page
 
     </div>
 </template>
 
 <script setup>
-import DashboardNav from '../components/DashboardNav.vue';
 import HeaderAndNav from '../components/HeaderAndNav.vue';
+import DashboardNav from '../components/DashboardNav.vue';
 
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

@@ -1,7 +1,10 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import LandingPage from "../pages/LandingPage.vue";
 import Dashboard from "../layouts/Dashboard.vue";
-import PostAnalyticsVue from "../pages/PostAnalytics.vue";
+import DepositPage from "../pages/DepositPage.vue";
+import DepositTransactions from "../pages/DepositTransactions.vue";
+import WithdrawPage from "../pages/WithdrawPage.vue";
+import WithdrawTransactions from "../pages/WithdrawTransactions.vue";
 import NotFound from "../pages/NotFound.vue";
 import SignupPageVue from "../pages/Signup.vue";
 import LoginVue from "../pages/Login.vue";
@@ -37,9 +40,27 @@ const router = createRouter({
       //   ],
     },
     {
-      path: "/dashboard/postanalytics",
-      name: "post-analytics",
-      component: PostAnalyticsVue,
+      path: "/dashboard/depositfunds",
+      name: "deposit-page",
+      component: DepositPage,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/dashboard/withdrawfunds",
+      name: "withdraw-page",
+      component: WithdrawPage,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/dashboard/deposittransactions",
+      name: "deposit-transactions",
+      component: DepositTransactions,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/dashboard/withdrawtransactions",
+      name: "withdraw-transactions",
+      component: WithdrawTransactions,
       meta: { requiresAuth: true },
     },
     {

@@ -26,7 +26,7 @@ import { MarketOverview } from "vue-tradingview-widgets";
 <style scoped>
 .container {
   margin-left: -8rem;
-  background-color: #173b6d;
+  background-color: rgb(28, 28, 36);
   display: flex;
   position: relative;
   height: 95vh;
