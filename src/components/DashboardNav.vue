@@ -167,6 +167,7 @@ h3 span {
   width: 27rem;
   height: 100vh;
   background-color: rgb(5, 118, 319);
+  background: #1E4274;
 
   color: #ccc;
   font-size: 1.4rem;
@@ -184,6 +185,20 @@ nav ul li a.router-link-exact-active {
 .logo {
   margin: 1rem 0;
   margin-bottom: 2rem;
+}
+
+
+.dashboard__nav .user {
+  margin-bottom: 5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.dashboard__nav .user p {
+  font-size: 1.1rem;
 }
 
 .mobile {

@@ -307,9 +307,9 @@ const handleSignOut = async () => {
   top: 0;
   left: 0;
   padding: 3rem;
-  width: 28rem;
+  width: 31rem;
   height: 100vh;
-  background-color: rgb(5, 118, 319);
+  background-color: rgba(5, 118, 319, 0.4);
   color: #ccc;
   font-size: 1.4rem;
   display: flex;
@@ -363,19 +363,6 @@ h3 span {
   padding: 0.2rem;
   font-size: 1.3rem;
   text-transform: uppercase;
-}
-
-.dashboard__nav .user {
-  margin-bottom: 5rem;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  align-self: flex-start;
-}
-
-.dashboard__nav .user p {
-  font-size: 1.1rem;
 }
 
 svg {
@@ -451,7 +438,6 @@ svg {
   width: 22rem;
   padding: 2rem;
   position: absolute;
-  color: var(--background-primary);
   top: 11%;
   right: 5%;
   background: rgba(0, 0, 015, 0.5);

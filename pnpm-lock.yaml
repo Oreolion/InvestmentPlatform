@@ -8,6 +8,7 @@ specifiers:
   vite: ^5.1.6
   vue: ^3.4.21
   vue-router: '4'
+  vue-tradingview-widgets: ^1.2.4
   vue3-toastify: ^0.2.1
 
 dependencies:
@@ -16,6 +17,7 @@ dependencies:
   firebase: 10.9.0
   vue: 3.4.21
   vue-router: 4.3.0_vue@3.4.21
+  vue-tradingview-widgets: 1.2.4
   vue3-toastify: 0.2.1_vue@3.4.21
 
 devDependencies:
@@ -1311,6 +1313,14 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.6.1
       vue: 3.4.21
+    dev: false
+
+  /vue-tradingview-widgets/1.2.4:
+    resolution: {integrity: sha512-6cjTpqUtSKisRPkEUaBGgAkCMAP2LE/AefXMI3zBAvCHsMlvKXxIwLVkzaBjcUF8cIaw7HyKoF0B+U94XH/J7w==}
+    dependencies:
+      vue: 3.4.21
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /vue/3.4.21:

@@ -94,11 +94,11 @@
   <main class="innerdashboard__container">
     <!-- header -->
     <header class="header">
-        <div class="logo link">
-      <router-link to="/">
-        <h3>FIDELITY <span>BROKER</span> CORPS</h3>
-      </router-link>
-    </div>
+      <div class="logo link">
+        <router-link to="/">
+          <h3>FIDELITY <span>BROKER</span> CORPS</h3>
+        </router-link>
+      </div>
       <nav class="right__nav">
         <div class="nav__icons">
           <div v-if="!toggle" @click="toggleMenu" class="menu-bar">
@@ -130,7 +130,7 @@
           </svg>
         </div>
       </nav>
-     
+
       <svg
         class="caret"
         xmlns="http://www.w3.org/2000/svg"
@@ -265,11 +265,11 @@ h3 span {
   top: 0;
   left: 0;
   padding: 3rem;
-  width: 25rem;
+  width: 28rem;
   height: 100vh;
-  background-color: rgb(5, 118, 319);
+  background-color: #1e4274;
   color: #ccc;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,6 +283,19 @@ h3 span {
 
 .logo p {
   font-size: 1rem;
+}
+
+.dashboard__nav .user {
+  margin-bottom: 5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.dashboard__nav .user p {
+  font-size: 1.1rem;
 }
 
 .mobile {
@@ -340,6 +353,7 @@ nav ul li a.router-link-exact-active {
   align-items: center;
   padding: 1.2rem 7%;
   height: 9rem;
+  z-index: 111;
 }
 
 .innerdashboard__container .header .logo {
@@ -517,6 +531,9 @@ svg {
   top: 15%;
   right: 10%;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img__box span {
