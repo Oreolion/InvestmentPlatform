@@ -1,8 +1,8 @@
 <template>
-    <DashboardNav></DashboardNav>
-    <HeaderAndNav></HeaderAndNav>
-        <section>
-        <div class="topbox">
+  <DashboardNav></DashboardNav>
+  <HeaderAndNav></HeaderAndNav>
+  <section>
+    <div class="topbox">
       <div class="btnbox">
         <div class="button">Account Funding</div>
         <div class="button">Withdrawal</div>
@@ -11,18 +11,32 @@
       <h2>Account Funding</h2>
     </div>
     <div class="btmbox">
+      <main class="dashboard__data">
+        <h1>Deposit History</h1>
+        <div class="data__container">
+          <div>
+            <p>DEPOSIT PLAN</p>
+            <p>AMOUNT</p>
+            <p>STATUS</p>
+            <p>CREATED</p>
+          </div>
+          <div>
+            <p>{}</p>
+            <p>{}</p>
+            <p>{}</p>
+            <p>{}</p>
+          </div>
+        </div>
+      </main>
     </div>
-        
 
-    </section>
-
+    <p class="footer">C2024 fidelity broker corps.</p>
+  </section>
 </template>
 
 <script setup>
-import HeaderAndNav from '../components/HeaderAndNav.vue';
-import DashboardNav from '../components/DashboardNav.vue';
-
-
+import HeaderAndNav from "../components/HeaderAndNav.vue";
+import DashboardNav from "../components/DashboardNav.vue";
 </script>
 
 <style scoped>
@@ -92,6 +106,38 @@ h2 {
   padding: 6rem 5%;
 }
 
+.dashboard__data {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.dashboard__data .data__container {
+  padding-top: 2rem;
+}
+
+.dashboard__data .data__container div {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: rgba(9, 36, 119, 0.6);
+  color: var(--primary);
+  width: 80rem;
+  height: 17rem;
+  justify-content: space-evenly;
+  border-right: 3px solid #f9a23f;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.footer {
+  color: green;
+  font-size: 1.8rem;
+  text-align: center;
+}
 
 @media (max-width: 768px) {
   section {
@@ -101,8 +147,6 @@ h2 {
   .topbox {
     width: 75rem;
   }
-
-
 }
 
 @media (max-width: 480px) {
