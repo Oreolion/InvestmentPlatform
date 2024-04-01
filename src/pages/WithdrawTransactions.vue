@@ -165,5 +165,49 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .topbox {
+    width: 45rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 28rem;
+  }
+
+  .button {
+    width: 18rem;
+    cursor: pointer;
+    display: flex;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 320px) {
+    .topbox {
+    width: 40rem;
+    height: 60%;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 28rem;
+  }
+
+  .button {
+    width: 16rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    height: 5rem;
+  }
+
 }
 </style>

@@ -314,5 +314,69 @@ h3 {
 }
 
 @media (max-width: 480px) {
+  .topbox {
+    width: 45rem;
+    height: 60%;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 28rem;
+  }
+
+  .button {
+    width: 18rem;
+    cursor: pointer;
+    display: flex;
+    height: 5rem;
+  }
+
+  .btmbox .depositbox {
+    flex-direction: column;
+    height: 35rem;
+  }
+
+  .btmbox p {
+    text-align: center;
+  }
+
+  .depositbox .left {
+    flex: 1 1 50%;
+    border-right: none;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
+  .depositbox .right h3 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+    .topbox {
+    width: 40rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 28rem;
+  }
+
+  .button {
+    width: 16rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    height: 5rem;
+  }
+
 }
 </style>

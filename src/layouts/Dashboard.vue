@@ -187,4 +187,26 @@ svg {
     gap: 3rem;
   }
 }
+
+@media (max-width: 480px) {
+  .dashboard .dashboard__info {
+    height: 80rem;
+  }
+
+  .dashboard .dashboard__info .user__info {
+    margin-bottom: 3rem;
+  }
+
+  .dashboard .dashboard__info .user__info div {
+    flex-direction: column;
+  }
+
+  .dashboard .dashboard__info .inner-box .box {
+    height: 17rem;
+    /* flex: 1 1 24rem;
+  width: 24rem; */
+  }
+}
+@media (max-width: 320px) {
+}
 </style>

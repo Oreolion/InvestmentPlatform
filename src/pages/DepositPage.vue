@@ -15,7 +15,7 @@
       <h3>Choose funding method:</h3>
       <div class="items">
         <div class="box">
-            <p class="p">Recommended</p>
+          <p class="p">Recommended</p>
           <div class="img">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -240,7 +240,7 @@ h2 {
 
 .btmbox .balance {
   width: 25rem;
-  height: 4rem;
+  height: 5rem;
   background: rgba(15, 15, 33, 0.8);
   font-size: 1.6rem;
   padding: 0.5rem;
@@ -269,29 +269,26 @@ h3 {
   height: 14rem;
   flex: 1 1 14rem;
   width: 14rem;
-  border: 5px solid  rgb(28, 28, 36);
+  border: 5px solid rgb(28, 28, 36);
   border-bottom: 5px solid #ccc;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #ccc;
-
 }
 
 .items .box .p {
-    padding: .1rem 1.2rem;
-    color: green;
-    background: aqua;
-    margin-bottom: .5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-
+  padding: 0.1rem 1.2rem;
+  color: green;
+  background: aqua;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .items .box:first-child {
-    border-bottom: 5px solid aqua;
-
+  border-bottom: 5px solid aqua;
 }
 
 .items .box p {
@@ -355,12 +352,76 @@ h3 {
     width: 75rem;
   }
 
-
   .btmbox .items {
     height: 29rem;
   }
 }
 
 @media (max-width: 480px) {
+  .topbox {
+    width: 45rem;
+  }
+
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 28rem;
+  }
+
+  .button {
+    width: 18rem;
+    cursor: pointer;
+    display: flex;
+    height: 5rem;
+  }
+
+  .btmbox .items {
+    height: 60rem;
+  }
+
+  .btmbox label input {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .topbox {
+    width: 40rem;
+  }
+
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .topbox .btnbox {
+    padding-top: 20rem;
+  }
+
+  .btmbox .balance {
+  width: 21rem;
+  height: 5rem;
+  background: rgba(15, 15, 33, 0.8);
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+  .btmbox .depositbox {
+    height: 31rem;
+  }
+
+  .button {
+    width: 16rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    height: 5rem;
+  }
 }
 </style>

@@ -241,25 +241,6 @@ h3 span {
   padding: 0.2rem;
   font-weight: bold;
 }
-
-.logo p {
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 0.5rem;
-  padding-left: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-.logo p span {
-  background: rgba(355, 355, 355, 0.3);
-  font-weight: bold;
-  border-radius: 0.4rem;
-  padding: 0.2rem;
-  font-size: 1.3rem;
-}
 .dashboard__nav {
   position: fixed;
   top: 0;
@@ -636,18 +617,12 @@ svg {
 
 @media (max-width: 480px) {
   .logo h3 {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
   }
 
-  .logo p {
-    font-size: 0.8rem;
-    font-weight: bold;
-    letter-spacing: 0;
-  }
-
-  .logo p span {
-    padding: 0.2rem;
-    font-size: 0.9rem;
+  .header .logo h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
 
   .header {
@@ -662,7 +637,12 @@ svg {
     right: 23%;
   }
   .dashboard__nav {
-    width: 17rem;
+    width: 22rem;
+  }
+
+  .dashboard__navlists .link {
+    font-size: 1.6rem;
+    margin-left: .1rem;
   }
 
   .search-form {
@@ -684,6 +664,14 @@ svg {
     margin-left: 0rem;
     margin-top: 3rem;
   }
+  .nav__icons .close-btn {
+    z-index: 111;
+}
+
+  .header .logo h3 {
+    font-size: 1.34rem;
+    margin-top: 0rem;
+  }
 
   .dashboard__navlists h5 {
     font-size: 1.2rem;
@@ -693,6 +681,11 @@ svg {
 
   .dashboard__nav {
     padding: 0rem 1rem;
+    width: 20rem;
+  }
+
+  .close-btn {
+    z-index: 111;
   }
 
   .dashboard__navlists .link {

@@ -3,11 +3,6 @@
   <HeaderAndNav></HeaderAndNav>
   <section>
     <div class="topbox">
-      <div class="btnbox">
-        <div class="button">Account Funding</div>
-        <div class="button">Withdrawal</div>
-      </div>
-
       <h2>Account Info</h2>
     </div>
     <div class="btmbox">
@@ -55,7 +50,7 @@ section {
 }
 
 .topbox {
-  height: 40rem;
+  height: 30rem;
   width: 140rem;
   display: flex;
   flex-direction: column;
@@ -84,16 +79,15 @@ section {
   /* Target all child elements */
   position: relative; /*  Allow child elements to overlap the pseudo-element */
 }
+
+.topbox h2 {
+    margin-top: 20rem;
+}
 h2 {
   font-size: 5rem;
   font-weight: bold;
 }
 
-.topbox .btnbox {
-  padding-top: 33rem;
-  margin-bottom: 5rem;
-  display: flex;
-}
 
 .button {
   width: 18rem;
@@ -146,7 +140,7 @@ input {
 }
 
 .btmbox label {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .btmbox span {
@@ -181,5 +175,56 @@ input {
 }
 
 @media (max-width: 480px) {
+  .topbox {
+    width: 45rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+
+  .button {
+    width: 18rem;
+    cursor: pointer;
+    display: flex;
+    height: 5rem;
+  }
+
+  .btmbox {
+    margin-top: 4rem;
+    padding: 6rem 5%;
+  }
+  .btmbox form {
+    padding: 2rem;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .topbox {
+    width: 40rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .topbox h2 {
+    padding-top: 20rem;
+  }
+
+  .button {
+    width: 16rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    height: 5rem;
+  }
 }
 </style>

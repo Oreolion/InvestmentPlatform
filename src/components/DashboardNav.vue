@@ -140,25 +140,6 @@ h3 span {
   font-weight: bold;
 }
 
-.logo p {
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 0.5rem;
-  padding-left: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-.logo p span {
-  background: rgba(355, 355, 355, 0.3);
-  background-color: green;
-  font-weight: bold;
-  border-radius: 0.4rem;
-  padding: 0.2rem;
-  font-size: 1.2rem;
-}
 .dashboard__nav {
   position: fixed;
   top: 0;
@@ -268,6 +249,9 @@ svg {
 }
 
 @media (max-width: 480px) {
+  h3 {
+    font-size: 1.4rem;
+  }
   .dashboard__nav {
     width: 17rem;
   }
