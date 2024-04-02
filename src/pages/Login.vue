@@ -87,7 +87,7 @@ const handleLogin = async () => {
     if (response.user) {
       localStorage.setItem("isLoggedIn", "true");
 
-      router.push("/dashboard", { ...history.state});
+      router.push("/dashboard", { ...history.state });
       toast.success("You are Logged In", {
         autoClose: 8000,
       });
@@ -121,7 +121,6 @@ const handleSignupWithGoogle = async () => {
     // const credential = GoogleAuthProvider.credentialFromError(error);
   }
 };
-
 </script>
 
 <style scoped>
@@ -271,33 +270,52 @@ small {
 }
 
 @media (max-width: 480px) {
-  .right__box {
+  section {
+    padding: 6rem 10%;
+  }
+  .rightbox {
     display: flex;
+    padding: 3rem 2%;
   }
 
   .inner__form label input {
     width: 100%;
     margin-right: 3rem;
   }
-}
 
-@media (max-width: 320px) {
-  .right__box h1 {
-    font-size: 1.8rem;
+  .btn-box {
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
 
-  .inner__form select,
-  .inner__form label {
-    font-size: 1.2rem;
-  }
-
-  .right__box .navigatepagebtn-box button {
-    width: 35%;
+  .rightbox .navigatepagebtn-box button {
+    width: 15rem;
     color: #e67e22;
     font-weight: bold;
     &:hover {
       color: #000;
     }
+  }
+}
+
+@media (max-width: 320px) {
+  .rightbox {
+    padding: 3rem 0%;
+    margin-left: -1.5rem;
+  }
+
+  .rightbox h1 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .inner__form select,
+  .inner__form label {
+    font-size: 1.2rem;
   }
 }
 </style>

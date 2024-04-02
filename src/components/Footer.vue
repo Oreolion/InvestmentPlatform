@@ -145,6 +145,7 @@ footer .p {
   .inner-footer {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
   }
 }
 </style>

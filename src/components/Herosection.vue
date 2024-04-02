@@ -125,4 +125,45 @@ section {
     gap: 6rem;
   }
 }
+@media (max-width: 480px) {
+  .leftbox {
+    width: 100%;
+    text-align: center;
+  }
+  .leftbox h1 {
+    font-size: 3rem;
+  }
+
+  .leftbox .lowerbox {
+    margin-bottom: 3rem;
+  }
+
+  .leftbox .lowerbox .box {
+    height: 13rem;
+  }
+
+  .leftbox .lowerbox .box h1 {
+    font-size: 2rem;
+  }
+
+  .leftbox .lowerbox .box p {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 320px) {
+  .leftbox h1 {
+    font-size: 2.5rem;
+  }
+
+  .leftbox p {
+    font-size: 1.8rem;
+  }
+
+  .inner__herosection {
+    margin-top: 12rem;
+  }
+  .leftbox h1 {
+    font-size: 2.5rem;
+  }
+}
 </style>

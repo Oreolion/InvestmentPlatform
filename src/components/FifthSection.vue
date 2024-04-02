@@ -99,4 +99,30 @@ p {
   font-size: 1.9rem;
   max-width: 30rem;
 }
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 5%;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  section {
+    padding: 3rem 8%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+}
 </style>

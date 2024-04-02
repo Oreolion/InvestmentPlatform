@@ -1,7 +1,7 @@
 <template>
   <section>
     <h5>SUPER RELIABLE</h5>
-    <H1>Switch to Fidelity Chase Corps today and experience the difference</H1>
+    <h1>Switch to Fidelity Chase Corps today and experience the difference</h1>
     <div class="innerbox">
       <div class="box">
         <h2>Independent thinking</h2>
@@ -178,7 +178,7 @@ h6 {
   .innercontainer {
     flex-direction: column;
     gap: 2rem;
-    height: 45rem;
+    height: 47rem;
   }
 
   .imgbox {
@@ -201,6 +201,73 @@ h6 {
   h6 {
     padding: 0 2rem;
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 5%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  h6 {
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .lowersection {
+    height: 74rem;
+  }
+
+  .innercontainer {
+    display: flex;
+    gap: 0rem;
+    border: 1px solid #e67e22;
+    border-radius: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .rightbox {
+    margin-top: 0rem;
+    flex: 1 1 65%;
+  }
+
+  .imgbox {
+    /* height: 53rem; */
+    width: 33rem;
+    flex: 1 1 33%;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+   h3 {
+    font-size: 2.5rem;
+  }
+
+  .lowersection {
+    height: 78rem;
+  }
+
+  .innercontainer {
+    height: 52rem;
+  }
+
+  h6 {
+    font-size: 1.8rem;
   }
 }
 </style>

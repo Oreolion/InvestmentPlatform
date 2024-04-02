@@ -57,4 +57,17 @@ button {
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .left h2 {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+  }
+  .left p {
+    font-size: 2rem;
+    max-width: 70rem;
+    color: #ccc;
+  }
+}
 </style>

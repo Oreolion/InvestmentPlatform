@@ -374,18 +374,34 @@ small {
 }
 
 @media (max-width: 480px) {
-  .right__box {
+  .rightbox {
     display: flex;
+    padding: 3rem 3%;
+    /* width: 65rem; */
   }
 
   .inner__form label input {
     width: 100%;
     margin-right: 3rem;
   }
+
+  .rightbox .navigatepagebtn-box button {
+    width: 16rem;
+    color: #e67e22;
+    font-weight: bold;
+    &:hover {
+      color: #000;
+    }
+  }
 }
 
 @media (max-width: 320px) {
-  .right__box h1 {
+
+    .rightbox {
+        padding: 3rem 0;
+        margin-left:-.5rem;
+    }
+  .rightbox h1 {
     font-size: 1.8rem;
   }
 
@@ -394,13 +410,5 @@ small {
     font-size: 1.2rem;
   }
 
-  .right__box .navigatepagebtn-box button {
-    width: 35%;
-    color: #e67e22;
-    font-weight: bold;
-    &:hover {
-      color: #000;
-    }
-  }
 }
 </style>

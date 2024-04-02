@@ -87,4 +87,24 @@ section {
     gap: 3rem;
   }
 }
+@media (max-width: 480px) {
+  .right {
+    text-align: center;
+  }
+
+  .right h1 {
+    font-size: 3rem;
+  }
+  .right p {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 320px) {
+    .right h1 {
+    font-size: 2.5rem;
+  }
+  .right p {
+    font-size: 1.6rem;
+  }
+}
 </style>

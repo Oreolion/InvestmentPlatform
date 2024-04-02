@@ -22,7 +22,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgb(5, 118, 389, .8);
+  color: rgb(5, 118, 389, 0.8);
 }
 
 h1 {
@@ -35,5 +35,18 @@ p {
   font-size: 2.5rem;
   max-width: 75rem;
   font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  section {
+    min-height: 40rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
 }
 </style>

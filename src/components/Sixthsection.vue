@@ -183,4 +183,46 @@ svg {
     margin-top: 0rem;
   }
 }
+
+@media (max-width: 480px) {
+  section {
+    padding: 5rem 5%;
+  }
+
+  .leftbox h1 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+  .leftbox h4 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .leftbox p {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  ul {
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    font-size: 1.7rem;
+  }
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  .leftbox button {
+    width: 17rem;
+    height: 6rem;
+    font-size: 1.6rem;
+    margin-left: 3rem;
+  }
+}
 </style>

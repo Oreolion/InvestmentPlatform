@@ -136,28 +136,6 @@ h3 span {
   font-weight: bold;
 }
 
-.logo p {
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 0.5rem;
-  padding-left: 4px;
-  background: rgba(05, 05, 05, 0.5);
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-.logo p span {
-  background: rgba(05, 05, 05, 0.4);
-  font-weight: bold;
-  border-radius: 0.4rem;
-  letter-spacing: 0.2;
-
-  padding: 0.2rem;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-}
-
 .right__nav {
   display: flex;
   gap: 3rem;
@@ -167,7 +145,7 @@ h3 span {
 
 .header button {
   background: rgba(215, 215, 215, 0.2);
-
+  white-space: nowrap;
   &:hover {
     color: #e67e22;
   }
@@ -179,7 +157,6 @@ h3 span {
   height: 100vh;
   position: absolute;
   display: none;
-
   text-align: center;
   top: 100%;
   right: 0%;
@@ -235,6 +212,7 @@ svg {
   color: #fff;
   font-weight: bold;
   padding: 4rem 1rem;
+  white-space: nowrap;
   &:hover {
     color: #e67e22;
     border: 1px solid #e67e22;
@@ -319,6 +297,13 @@ svg {
   }
 }
 @media (max-width: 480px) {
+  .header {
+    padding: 1.2rem 1%;
+  }
+  .logo h3 {
+    font-size: 1.4rem;
+    /* text-align: left; */
+  }
   .mobile__nav {
     width: 24rem;
     width: 18rem;
@@ -329,9 +314,21 @@ svg {
     padding-right: 2rem;
   }
 
+  .nav__icons {
+    gap: 1rem;
+  }
+
+  .right__nav {
+    gap: 1rem;
+  }
+
   .nav__icons .menu-bar svg {
     display: flex;
     margin-left: -1rem;
+  }
+
+  .header button {
+    margin-left: -2rem;
   }
 }
 
@@ -339,7 +336,20 @@ svg {
   .header .logo {
     width: 19rem;
     margin-right: 2rem;
-    margin-left: -2rem;
+    margin-left: 0rem;
+  }
+
+  .header button {
+    font-size: 1.3rem;
+    margin-left: -3rem;
+  }
+
+  .nav__icons {
+    gap: 0.5rem;
+  }
+
+  .right__nav {
+    gap: 0.5rem;
   }
 }
 </style>
