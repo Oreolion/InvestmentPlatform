@@ -15,7 +15,9 @@
           other way around.
         </p>
         <p>
-            Our trading tools are simply intuitive and designed to take the complexity out of trading, so you can be free to focus on what matters most.
+          Our trading tools are simply intuitive and designed to take the
+          complexity out of trading, so you can be free to focus on what matters
+          most.
         </p>
       </div>
     </div>
@@ -26,86 +28,73 @@
 
 <style scoped>
 section {
-    padding: 5rem 5%;
+  padding: 5rem 5%;
   min-height: 50rem;
   background-color: #ccc;
   margin-top: 11rem;
 }
 
 h3 {
-    font-size: 4.5rem;
-    margin-bottom: 2rem;
-    margin-top: 10rem;
+  font-size: 4.5rem;
+  margin-bottom: 2rem;
+  margin-top: 10rem;
 }
 
 h1 {
-    font-size: 6rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-    text-align: center;
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+  text-align: center;
 }
 
 p {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .inner {
-    display: flex;
-    gap: 4rem;
+  display: flex;
+  gap: 4rem;
 }
 
 .leftbox {
-    flex: 1 1 50%;
-    height: 80vh;
+  flex: 1 1 50%;
+  height: 80vh;
 }
 
 .leftbox img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 3rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3rem;
 }
 
 .rightbox {
-    flex:  1 1 50%;
+  flex: 1 1 50%;
 }
 
-
 @media (max-width: 768px) {
-    .inner {
-        flex-direction: column;
-    }
+  .inner {
+    flex-direction: column;
+  }
 }
 @media (max-width: 480px) {
   h1 {
     font-size: 4rem;
   }
 
-
   h3 {
     font-size: 3rem;
   }
-
-  
-
 }
 @media (max-width: 320px) {
   h1 {
     font-size: 3.5rem;
   }
 
-
   h3 {
     font-size: 2.5rem;
   }
-
-  
-
 }
-
-
-
-
 </style>

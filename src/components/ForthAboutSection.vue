@@ -38,4 +38,14 @@ p {
   font-weight: bold;
   max-width: 85rem;
 }
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+}
 </style>

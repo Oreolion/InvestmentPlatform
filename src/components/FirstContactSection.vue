@@ -71,4 +71,40 @@ h4 {
   margin: 0 auto;
   text-align: center;
 }
+
+
+@media (max-width: 480px ) {
+    .left {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+  max-width: 80rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.left p {
+  max-width: 89rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.p {
+  max-width: 84rem;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+}
 </style>

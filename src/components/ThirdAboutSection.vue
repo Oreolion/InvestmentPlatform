@@ -117,4 +117,52 @@ p {
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .box {
+    flex-direction: column;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 65rem;
+  }
+
+  p {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+  }
+}
+
+
+@media (max-width: 320px) {
+
+
+  h3 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 65rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    padding:  1rem;
+  }
+  
+}
 </style>

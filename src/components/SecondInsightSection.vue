@@ -78,7 +78,6 @@ section {
   border-bottom: 2px solid #e67e22;
   border-radius: 2rem;
   padding: 3rem 0;
-  
 }
 
 .box .leftbox {
@@ -116,6 +115,25 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  section {
+    padding-left: 0;
+    padding: 3rem 5%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+  .box {
+    gap: 2rem;
+
+    padding: 1rem 0;
+  }
+
+  .box .rightbox {
+    width: 30rem;
   }
 }
 </style>

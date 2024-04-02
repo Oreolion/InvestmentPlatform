@@ -94,7 +94,7 @@ h5 {
 
 @media (max-width: 768px) {
   section {
-    
+    padding: 4rem 5%;
     flex-direction: column;
     text-align: center;
     gap: 6rem;

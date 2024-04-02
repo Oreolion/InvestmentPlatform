@@ -153,4 +153,28 @@ button {
     font-size: 4.5rem;
   }
 }
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  ul {
+    margin-top: 3rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+  }
+
+  li {
+    font-size: 1.8rem;
+  }
+
+  button {
+    width: 16rem;
+    height: 6rem;
+    font-size: 1.6rem;
+  }
+}
 </style>

@@ -186,4 +186,31 @@ p {
     margin: 0 auto;
   }
 }
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .left p {
+    font-size: 2rem;
+  }
+
+  .box {
+    height: 25rem;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .left p {
+    font-size: 1.5rem;
+  }
+
+  .box {
+    height: 28rem;
+  }
+}
 </style>

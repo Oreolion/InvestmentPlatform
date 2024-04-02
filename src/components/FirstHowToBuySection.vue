@@ -126,4 +126,42 @@ img {
     margin: 0 auto;
   }
 }
+
+@media (max-width: 480px) {
+  section {
+    padding: 4rem 8%;
+  }
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  img {
+    margin-left: -2rem;
+  }
+
+  p {
+    font-size:2rem;
+  }
+
+  button {
+    height: 6rem;
+  }
+}
+
+@media (max-width: 320px) {
+    h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+}
 </style>

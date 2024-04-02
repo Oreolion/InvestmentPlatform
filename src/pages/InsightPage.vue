@@ -31,8 +31,14 @@ import Footer from "../components/Footer.vue";
 }
 
 svg {
-  fill:#e67e22 ;
+  fill: #e67e22;
   height: 4rem;
   width: 4rem;
+}
+
+@media (max-width: 480px) {
+  .box {
+    height: 8rem;
+  }
 }
 </style>

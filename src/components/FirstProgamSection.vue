@@ -114,4 +114,39 @@ p {
     text-align: center;
   }
 }
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    white-space: wrap;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .topbox {
+    border-bottom: 1px solid #e67e22;
+    padding-bottom: 4rem;
+  }
+
+  .box {
+
+  width: 32rem;
+  height: 23rem;
+}
+}
 </style>
