@@ -3,12 +3,15 @@
   <HeaderAndNav></HeaderAndNav>
   <section>
     <div class="topbox">
-      <div class="btnbox">
-        <div class="button">Account Funding</div>
-        <div class="button">Withdrawal</div>
+        <div class="btnbox">
+        <router-link to="/dashboard/deposittransactions" class="button"
+          >My Deposits</router-link
+        >
+        <router-link to="/dashboard/withdrawtransactions" class="button"
+          >My Withdraws</router-link
+        >
       </div>
-
-      <h2>Account Funding</h2>
+      <h2>Withdraw Transactions</h2>
     </div>
     <div class="btmbox">
       <main class="dashboard__data">
@@ -94,6 +97,14 @@ h2 {
   height: 6rem;
   background-color: transparent;
   border: 3px solid #ccc;
+  color: #ccc;
+}
+
+
+a.router-link-exact-active {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 6px solid #e67e22;
+  padding: 0.3rem;
 }
 
 .btmbox {

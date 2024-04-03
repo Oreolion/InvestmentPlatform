@@ -99,6 +99,20 @@
           <h3>FIDELITY <span>BROKER</span> CORPS</h3>
         </router-link>
       </div>
+      <p>
+        Account Status:
+        <svg
+          class="svg"
+          fill="green"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+          />
+        </svg>
+        <span>active</span>
+      </p>
       <nav class="right__nav">
         <div class="nav__icons">
           <div v-if="!toggle" @click="toggleMenu" class="menu-bar">
@@ -339,6 +353,30 @@ nav ul li a.router-link-exact-active {
   z-index: 111;
 }
 
+.header p {
+  color: #ccc;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 23rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.header span {
+  color: green;
+  display: flex;
+  font-weight: bold;
+  gap: .5rem;
+}
+
+.header .svg {
+  fill: green;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+}
 .innerdashboard__container .header .logo {
   display: none;
 }
@@ -541,6 +579,10 @@ svg {
   .header {
     padding: 1.2rem 5%;
   }
+
+  .header p {
+    margin-left: 0;
+  }
   .logo {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -642,7 +684,7 @@ svg {
 
   .dashboard__navlists .link {
     font-size: 1.6rem;
-    margin-left: .1rem;
+    margin-left: 0.1rem;
   }
 
   .search-form {
@@ -666,7 +708,7 @@ svg {
   }
   .nav__icons .close-btn {
     z-index: 111;
-}
+  }
 
   .header .logo h3 {
     font-size: 1.34rem;

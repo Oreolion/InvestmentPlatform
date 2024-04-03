@@ -3,7 +3,15 @@
   <HeaderAndNav></HeaderAndNav>
   <section>
     <div class="topbox">
-      <h2>Account Info</h2>
+      <div class="btnbox">
+        <router-link to="/dashboard/accountprofile" class="button"
+          >Account Details</router-link
+        >
+        <router-link to="/dashboard/policypage" class="button"
+          >Confidential Policies</router-link
+        >
+      </div>
+      <h2>Account Details</h2>
     </div>
     <div class="btmbox">
       <form action="">
@@ -50,7 +58,7 @@ section {
 }
 
 .topbox {
-  height: 30rem;
+  height: 40rem;
   width: 140rem;
   display: flex;
   flex-direction: column;
@@ -81,7 +89,7 @@ section {
 }
 
 .topbox h2 {
-    margin-top: 20rem;
+  margin-top: 3rem;
 }
 h2 {
   font-size: 5rem;
@@ -89,16 +97,30 @@ h2 {
 }
 
 
+.topbox .btnbox {
+  padding-top: 33rem;
+  margin-bottom: 5rem;
+  display: flex;
+}
+
 .button {
-  width: 18rem;
+  width: 19rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   height: 6rem;
+  font-size: 1.5rem;
   background-color: transparent;
   border: 3px solid #ccc;
+  color: #ccc;
+}
+
+a.router-link-exact-active {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 6px solid #e67e22;
+  padding: 0.3rem;
 }
 
 .btmbox {
@@ -183,7 +205,6 @@ input {
     font-size: 3rem;
     font-weight: bold;
   }
-
 
   .button {
     width: 18rem;

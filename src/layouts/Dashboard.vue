@@ -66,6 +66,18 @@
     </main>
   </div>
   <TradingViewChart></TradingViewChart>
+  <div class="bottom__section">
+    <button>
+      <router-link class="a" to="/dashboard/depositfunds">
+        Make a Deposit
+      </router-link>
+    </button>
+    <button>
+      <router-link class="a" to="/dashboard/withdrawfunds">
+        Make a Withdrawal
+      </router-link>
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -171,6 +183,36 @@ svg {
   background-color: rgba(9, 36, 119, 0.6);
 }
 
+.bottom__section {
+  height: 13rem;
+  margin-left: 28rem;
+  background-color: rgb(28, 28, 36);
+  padding: 2rem 7rem;
+  padding-bottom: 27rem;
+}
+
+button {
+  margin-right: 3rem;
+  height: 8rem;
+  width: 20rem;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.a {
+  color: #ccc;
+  font-weight: bold;
+}
+
+button:first-child {
+  background-color: green;
+}
+button:last-child {
+  background-color: red;
+}
 @media (max-width: 768px) {
   .dashboard .dashboard__info .user__info {
     display: flex;
@@ -186,9 +228,16 @@ svg {
   .dashboard .dashboard__info .inner-box {
     gap: 3rem;
   }
+
+  .bottom__section {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 480px) {
+  .bottom__section {
+    margin-left: 0;
+  }
   .dashboard .dashboard__info {
     height: 80rem;
   }

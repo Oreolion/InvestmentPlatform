@@ -9,7 +9,20 @@
       </div>
       <div class="rightbox">
         <form action="">
-          <h3 class="form__header">Create Account</h3>
+          <div class="head">
+            <router-link to="/">
+              <svg
+                fill="#ccc"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
+                />
+              </svg>
+            </router-link>
+            <h3 class="form__header">Create Account</h3>
+          </div>
           <p>Fill the below form to create a new account</p>
           <div class="inner__form">
             <div class="name">
@@ -17,15 +30,15 @@
                 First name: <br />
                 <input v-model="v$.firstname.$model" type="text" />
                 <small v-if="v$.firstname.$errors.length">{{
-                v$.firstname.$errors[0].$message
-              }}</small>
+                  v$.firstname.$errors[0].$message
+                }}</small>
               </label>
               <label for="lastname">
                 Last name: <br />
                 <input v-model="v$.lastname.$model" type="text" />
                 <small v-if="v$.lastname.$errors.length">{{
-                v$.lastname.$errors[0].$message
-              }}</small>
+                  v$.lastname.$errors[0].$message
+                }}</small>
               </label>
             </div>
             <label for="phone">
@@ -134,9 +147,8 @@ import {
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebase";
 
-
 const userRules = {
-    firstname: { required },
+  firstname: { required },
   lastname: { required },
   email: { required, email },
   password: { required, minLength: minLength(8) },
@@ -194,18 +206,17 @@ const handleSignUp = async () => {
 const createUser = async (data) => {
   try {
     await setDoc(doc(db, "users", data.userId), { ...data });
-    console.log(data)
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
 };
 
-
 const handleSignupWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     await signInWithPopup(auth, provider);
-    router.push("/dashboard", { ...history.state});
+    router.push("/dashboard", { ...history.state });
     toast.success("You are Logged In");
     // This gives you a Google Access Token. You can use it to access the Google API.
     // const credential = await GoogleAuthProvider.credentialFromResult(result);
@@ -253,6 +264,19 @@ section {
   flex: 1 1 35%;
   color: #ccc;
   padding: 5rem;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+svg {
+  height: 3rem;
+  width: 3rem;
+  &:hover {
+    fill: #e67e22;
+  }
 }
 
 h3 {
@@ -396,11 +420,10 @@ small {
 }
 
 @media (max-width: 320px) {
-
-    .rightbox {
-        padding: 3rem 0;
-        margin-left:-.5rem;
-    }
+  .rightbox {
+    padding: 3rem 0;
+    margin-left: -0.5rem;
+  }
   .rightbox h1 {
     font-size: 1.8rem;
   }
@@ -409,6 +432,5 @@ small {
   .inner__form label {
     font-size: 1.2rem;
   }
-
 }
 </style>

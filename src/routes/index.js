@@ -14,6 +14,7 @@ import ContactPage from "../pages/ContactPage.vue";
 import InsightPage from "../pages/InsightPage.vue";
 import HowToBuyPage from "../pages/HowToBuyPage.vue";
 import TradingProgramPage from "../pages/TradingProgramPage.vue";
+import PolicyPage from "../pages/PolicyPage.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -28,7 +29,11 @@ const router = createRouter({
     { path: "/contact", name: "contact-page", component: ContactPage },
     { path: "/insight", name: "insight-page", component: InsightPage },
     { path: "/howtobuy", name: "how-to-buy-page", component: HowToBuyPage },
-    { path: "/program", name: "trading-program-page", component: TradingProgramPage },
+    {
+      path: "/program",
+      name: "trading-program-page",
+      component: TradingProgramPage,
+    },
     { path: "/login", name: "login-page", component: LoginVue },
     { path: "/signup", name: "signup-page", component: SignupPageVue },
     {
@@ -67,6 +72,12 @@ const router = createRouter({
       path: "/dashboard/accountprofile",
       name: "account-profile",
       component: AccountProfile,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/dashboard/policypage",
+      name: "policy-page",
+      component: PolicyPage,
       meta: { requiresAuth: true },
     },
 
