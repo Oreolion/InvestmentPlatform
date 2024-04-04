@@ -155,7 +155,7 @@
       <h3>Deposit using Bitcoin:</h3>
       <div class="depositbox">
         <label class="ammount">
-          Amount in base currency: <input type="text" /> <span>$</span>
+          Amount in base currency: <input type="text" v-model="deposit.amount"/> <span>$</span>
         </label>
         <button>Fund Account</button>
         <p>How to buy Bitcoin from our official patner at Bitcoin.com</p>
@@ -169,6 +169,20 @@
 <script setup>
 import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
+import {reactive} from "vue";
+
+const deposit = reactive({
+    amount: "",
+    depositDate: "",
+    depositCurrency: "Bitcoin",
+    depositStatus: "",
+})
+
+
+
+
+
+
 </script>
 
 <style scoped>

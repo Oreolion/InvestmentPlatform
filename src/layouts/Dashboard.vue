@@ -7,7 +7,7 @@
       <div class="user__info">
         <h1>
           Hi
-          {{ nameOfUser }}... Welcome!
+          {{ userProfile.firstname + " " + userProfile.lastname }}... Welcome!
         </h1>
         <div>
           <p>
@@ -20,7 +20,7 @@
                 d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
               />
             </svg>
-            <span>Username: {{ profile.displayName }}</span>
+            <span>Username: {{ userProfile.firstname }}</span>
           </p>
           <p>
             <svg
@@ -78,7 +78,7 @@
           </svg>
 
           <p>Registered Date:</p>
-          <h2>$0.<span>00</span></h2>
+          <h2>{{ new Date().toLocaleDateString()}}</h2>
           <p>Account Registered Date</p>
         </div>
       </div>
@@ -145,9 +145,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const nameOfUser = computed( async () => {
-   `${userProfile.firstname.toUpperCase()} ${userProfile.lastname.toUpperCase()}`;
-});
 </script>
 
 <style scoped>

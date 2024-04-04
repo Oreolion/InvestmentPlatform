@@ -25,10 +25,10 @@
             <p>CREATED</p>
           </div>
           <div>
-            <p>{}</p>
-            <p>{}</p>
-            <p>{}</p>
-            <p>{}</p>
+            <p>{{}}</p>
+            <p>{{ deposit.amount }}</p>
+            <p>{{}}</p>
+            <p>{{ deposit.depositDate }}</p>
           </div>
         </div>
       </main>
@@ -41,6 +41,13 @@
 <script setup>
 import HeaderAndNav from "../components/HeaderAndNav.vue";
 import DashboardNav from "../components/DashboardNav.vue";
+import { reactive } from "vue";
+
+const deposit = reactive({
+  amount: "",
+  depositDate: "",
+  depositCurrency: "",
+});
 </script>
 
 <style scoped>
@@ -142,6 +149,11 @@ a.router-link-exact-active {
   border-right: 3px solid #f9a23f;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.dashboard__data .data__container div:first-child p {
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
 .footer {
