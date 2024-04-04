@@ -78,7 +78,7 @@
           </svg>
 
           <p>Registered Date:</p>
-          <h2>{{ new Date().toLocaleDateString()}}</h2>
+          <h2>{{ new Date().toLocaleDateString() }}</h2>
           <p>Account Registered Date</p>
         </div>
       </div>
@@ -144,7 +144,6 @@ onAuthStateChanged(auth, (user) => {
     profile.displayName = user.displayName ?? "";
   }
 });
-
 </script>
 
 <style scoped>
@@ -291,15 +290,15 @@ button:last-child {
   .dashboard .dashboard__info .inner-box {
     gap: 3rem;
   }
-
-  .bottom__section {
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 480px) {
   .bottom__section {
     margin-left: 0;
+  }
+
+  .bottom__section button {
+    margin-bottom: 2rem;
   }
   .dashboard .dashboard__info {
     height: 80rem;
@@ -313,12 +312,24 @@ button:last-child {
     flex-direction: column;
   }
 
+  .dashboard .dashboard__info .user__info h1 {
+    white-space: nowrap;
+    color: #ccc;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
   .dashboard .dashboard__info .inner-box .box {
     height: 17rem;
-    /* flex: 1 1 24rem;
-  width: 24rem; */
   }
 }
 @media (max-width: 320px) {
+  .dashboard .dashboard__info .user__info h1 {
+    font-size: 1.6rem;
+  }
+
+  .bottom__section {
+    margin-top: 14rem;
+  }
 }
 </style>

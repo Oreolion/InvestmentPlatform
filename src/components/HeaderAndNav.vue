@@ -677,6 +677,21 @@ svg {
     padding: 1.2rem 2%;
   }
 
+  .header p {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-left: -7rem;
+    margin-top: 7rem;
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .header span {
+    color: green;
+    display: flex;
+    gap: 0.1rem;
+  }
+
   .header .nav__icons {
     display: flex;
     gap: 3rem;
@@ -721,6 +736,11 @@ svg {
     margin-top: 0rem;
   }
 
+  .header p {
+    gap: 0.1rem;
+    margin-left: -5rem;
+    font-size: 0.8rem;
+  }
   .dashboard__navlists h5 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
@@ -729,7 +749,11 @@ svg {
 
   .dashboard__nav {
     padding: 0rem 1rem;
-    width: 20rem;
+    width: 19rem;
+  }
+
+  .dashboard__nav .user {
+    margin-bottom: 2rem;
   }
 
   .close-btn {
@@ -737,7 +761,7 @@ svg {
   }
 
   .dashboard__navlists .link {
-    gap: 1rem;
+    gap: 0.8rem;
     margin-bottom: 0.5rem;
     white-space: nowrap;
   }
