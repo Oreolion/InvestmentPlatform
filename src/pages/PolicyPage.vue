@@ -8,7 +8,7 @@
           >Account Details</router-link
         >
         <router-link to="/dashboard/policypage" class="button"
-          >Confidential Policies</router-link
+          >Confidentiality Policies</router-link
         >
       </div>
       <h2>Account Details</h2>

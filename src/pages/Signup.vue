@@ -43,11 +43,11 @@
             </div>
             <label for="phone">
               Phone Number <br />
-              <input v-model="user.phoneNumber" type="tel" id="" />
+              <input v-model="user.phoneNumber" type="tel"  />
             </label>
             <label for="username">
               Username <br />
-              <input v-model="user.username" type="tel" id="" />
+              <input v-model="user.displayName" type="text" />
             </label>
 
             <label for="email">
@@ -167,7 +167,7 @@ const user = reactive({
   confirmPassword: "",
   firstname: "",
   lastname: "",
-  username: "",
+  displayName: "",
   phoneNumber: "",
   country: "",
 });
@@ -181,7 +181,8 @@ const handleSignUp = async () => {
     const response = await createUserWithEmailAndPassword(
       auth,
       user.email,
-      user.password
+      user.password, 
+      user.displayName,
     );
     console.log(response);
     if (response.user) {

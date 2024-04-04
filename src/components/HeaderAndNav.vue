@@ -13,7 +13,7 @@
         />
       </svg>
       <div class="user__info">
-        <p>{user.email}</p>
+        <p>{{ profile.email }}</p>
         <p>$0.00</p>
       </div>
     </div>
@@ -198,6 +198,7 @@ const isLoading = ref(true);
 let profile = reactive({
   photoURL: "",
   displayName: "",
+  email: "",
 });
 
 const handleSignOut = async () => {
@@ -228,6 +229,7 @@ onAuthStateChanged(auth, (user) => {
     isLoading.value = false;
     profile.photoURL = user.photoURL ?? "";
     profile.displayName = user.displayName ?? "";
+    profile.email = user.email ?? "";
   }
 });
 </script>
@@ -293,6 +295,9 @@ h3 span {
   font-size: 1.1rem;
 }
 
+.user .user__info p {
+  font-size: 1.6rem;
+}
 .mobile {
   display: none;
 }
@@ -368,7 +373,7 @@ nav ul li a.router-link-exact-active {
   color: green;
   display: flex;
   font-weight: bold;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .header .svg {
@@ -421,6 +426,7 @@ nav ul li a.router-link-exact-active {
 .notificationbox p {
   font-size: 1.4rem;
   font-weight: bold;
+  margin-left: 0rem;
   cursor: pointer;
   &:hover {
     color: red;

@@ -12,7 +12,7 @@
         />
       </svg>
       <div class="user__info">
-        <p>{user.email}</p>
+        <p>{{ email }}</p>
         <p>$0.00</p>
       </div>
     </div>
@@ -94,11 +94,21 @@
 
 <script setup lang="ts">
 // import { ref } from "vue";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "vue-router";
 import { toast } from "vue3-toastify";
+import { ref } from "vue";
+import { auth } from "../utils/firebase";
 
 const router = useRouter();
+
+const email = ref("");
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    email.value = user.email ?? "";
+  }
+});
 
 const handleSignOut = async () => {
   try {
@@ -178,6 +188,10 @@ nav ul li a.router-link-exact-active {
 
 .dashboard__nav .user p {
   font-size: 1.1rem;
+}
+
+.user .user__info p {
+  font-size: 1.6rem;
 }
 
 .mobile {

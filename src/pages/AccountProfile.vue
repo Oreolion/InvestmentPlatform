@@ -8,21 +8,43 @@
           >Account Details</router-link
         >
         <router-link to="/dashboard/policypage" class="button"
-          >Confidential Policies</router-link
+          >Confidentiality Policies</router-link
         >
       </div>
       <h2>Account Details</h2>
     </div>
     <div class="btmbox">
       <form action="">
+        <label for="Firstname">
+          <input
+            type="text"
+            v-model="userProfile.firstname"
+            placeholder="First name here"
+          />
+        </label>
+        <label for="Lastname">
+          <input
+            type="text"
+            v-model="userProfile.lastname"
+            placeholder="Last name here"
+          />
+        </label>
         <label for="username">
-          <input type="text" placeholder="username here" />
+          <input
+            type="text"
+            v-model="profile.displayName"
+            placeholder="Username here"
+          />
         </label>
         <label for="email">
-          <input type="email" placeholder="email here" />
+          <input
+            type="email"
+            placeholder="email here"
+            v-model="profile.email"
+          />
         </label>
         <label for="phone">
-          <input type="tel" placeholder="phone number here" />
+          <input v-model="userProfile.phoneNumber" type="tel" placeholder="phone number here" />
         </label>
         <h2>Account Verification</h2>
         <p>
@@ -48,8 +70,53 @@
 </template>
 
 <script setup>
+import { reactive, onMounted } from "vue";
+import { auth } from "../utils/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../utils/firebase";
 import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
+
+let userProfile = reactive({});
+const profile = reactive({})
+
+
+const handleUpdateProfile = async () => {
+  const postRef = collection(db, "users");
+  //   const postQuery = query(postRef, orderBy("createdAt", "asc"), limit(5));
+
+  // Get initial data
+  const querySnapshot = await getDocs(postRef);
+  console.log(querySnapshot);
+
+  if (querySnapshot) {
+    querySnapshot.docs.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    //   userProfile = doc.data();
+       userProfile.firstname = doc.data().firstname;
+       userProfile.lastname = doc.data().lastname;
+       userProfile.phoneNumber = doc.data().phoneNumber;
+    });
+  } else {
+    console.log("No such document!");
+  }
+
+};
+
+onMounted(async () => {
+  return await handleUpdateProfile();
+});
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    profile.email = user.email ?? "";
+    profile.displayName = user.displayName ?? "";
+  }
+});
+
+
+
 </script>
 
 <style scoped>
@@ -95,7 +162,6 @@ h2 {
   font-size: 5rem;
   font-weight: bold;
 }
-
 
 .topbox .btnbox {
   padding-top: 33rem;

@@ -5,15 +5,34 @@
   <div class="dashboard">
     <main class="dashboard__info">
       <div class="user__info">
-        <h1>HI Name... Welcome!</h1>
+        <h1>
+          Hi
+          {{ nameOfUser }}... Welcome!
+        </h1>
         <div>
           <p>
-            <FaUser size="{18}" />
-            <span>Username: {user.username}</span>
+            <svg
+              fill="#000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+              />
+            </svg>
+            <span>Username: {{ profile.displayName }}</span>
           </p>
           <p>
-            <MdAttachEmail size="{18}" />
-            <span>Email: {user.email}</span>
+            <svg
+              fill="#000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+              />
+            </svg>
+            <span>Email: {{ profile.email }}</span>
           </p>
         </div>
       </div>
@@ -85,6 +104,50 @@ import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
 import TradingViewTicker from "../tradingviews_widget/TradingViewTicker.vue";
 import TradingViewChart from "../tradingviews_widget/TradingViewChart.vue";
+import { auth } from "../utils/firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../utils/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { reactive, onMounted, computed } from "vue";
+
+const profile = reactive({});
+
+let userProfile = reactive({});
+
+const handleUpdateProfile = async () => {
+  const postRef = collection(db, "users");
+  //   const postQuery = query(postRef, orderBy("createdAt", "asc"), limit(5));
+
+  // Get initial data
+  const querySnapshot = await getDocs(postRef);
+  console.log(querySnapshot);
+
+  if (querySnapshot) {
+    querySnapshot.docs.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      //   userProfile = doc.data();
+      userProfile.firstname = doc.data().firstname;
+      userProfile.lastname = doc.data().lastname;
+    });
+  } else {
+    console.log("No such document!");
+  }
+};
+
+onMounted(async () => {
+  return await handleUpdateProfile();
+});
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    profile.email = user.email ?? "";
+    profile.displayName = user.displayName ?? "";
+  }
+});
+
+const nameOfUser = computed( async () => {
+   `${userProfile.firstname.toUpperCase()} ${userProfile.lastname.toUpperCase()}`;
+});
 </script>
 
 <style scoped>
@@ -131,6 +194,9 @@ svg {
   width: 22rem;
   height: 3.5rem;
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   white-space: nowrap;
   font-weight: bold;
 }
