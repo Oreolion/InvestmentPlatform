@@ -43,6 +43,13 @@
             v-model="profile.email"
           />
         </label>
+        <label for="country">
+          <input
+            type="text"
+            placeholder="country here"
+            v-model="userProfile.country"
+          />
+        </label>
         <label for="phone">
           <input v-model="userProfile.phoneNumber" type="tel" placeholder="phone number here" />
         </label>
@@ -88,15 +95,14 @@ const handleUpdateProfile = async () => {
 
   // Get initial data
   const querySnapshot = await getDocs(postRef);
-  console.log(querySnapshot);
 
   if (querySnapshot) {
     querySnapshot.docs.forEach((doc) => {
       console.log(doc.id, " => ", doc.data());
-    //   userProfile = doc.data();
        userProfile.firstname = doc.data().firstname;
        userProfile.lastname = doc.data().lastname;
        userProfile.phoneNumber = doc.data().phoneNumber;
+       userProfile.country = doc.data().country;
     });
   } else {
     console.log("No such document!");

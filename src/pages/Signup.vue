@@ -41,6 +41,10 @@
                 }}</small>
               </label>
             </div>
+            <label for="country">
+              Country <br />
+              <input v-model="user.country" type="text"  />
+            </label>
             <label for="phone">
               Phone Number <br />
               <input v-model="user.phoneNumber" type="tel"  />

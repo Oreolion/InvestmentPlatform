@@ -4,8 +4,12 @@
   <section>
     <div class="topbox">
       <div class="btnbox">
-        <router-link to="/dashboard/depositfunds" class="button">Account Funding</router-link>
-        <router-link to="/dashboard/withdrawfunds" class="button">Withdrawal</router-link>
+        <router-link to="/dashboard/depositfunds" class="button"
+          >Account Funding</router-link
+        >
+        <router-link to="/dashboard/withdrawfunds" class="button"
+          >Withdrawal</router-link
+        >
       </div>
 
       <h2>Account Funding</h2>
@@ -155,13 +159,15 @@
       <h3>Deposit using Bitcoin:</h3>
       <div class="depositbox">
         <label class="ammount">
-          Amount in base currency: <input type="text" v-model="deposit.amount"/> <span>$</span>
+          Amount in base currency:
+          <input type="text" v-model="deposit.amount" /> <span>$</span>
         </label>
-        <button>Fund Account</button>
+        <button @click="handleDepositInput">Fund Account</button>
         <p>How to buy Bitcoin from our official patner at Bitcoin.com</p>
         <small>Tutorial</small>
       </div>
     </div>
+    <MakeDeposit v-if="depositDialog"></MakeDeposit>
     <p class="footer">C2024 fidelity broker corps.</p>
   </section>
 </template>
@@ -169,18 +175,28 @@
 <script setup>
 import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
-import {reactive} from "vue";
+import {ref, reactive } from "vue";
+import MakeDeposit from "../components/MakeDeposit.vue";
 
 const deposit = reactive({
-    amount: "",
-    depositDate: "",
-    depositCurrency: "Bitcoin",
-    depositStatus: "",
-})
+  amount: "",
+  depositDate: new Date().toISOString(),
+  depositCurrency: "Bitcoin",
+  depositStatus: "",
+});
+
+const depositDialog = ref(false)
+
+// const currentDate = new Date();
+// const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')} ${String(currentDate.getHours()).padStart(2, '0')}:${String(currentDate.getMinutes()).padStart(2, '0')}:${String(currentDate.getSeconds()).padStart(2, '0')}`;
 
 
+console.log(deposit.depositDate);
 
+const handleDepositInput = () => {
+    depositDialog.value = true;
 
+}
 
 
 </script>
@@ -242,7 +258,6 @@ h2 {
   background-color: transparent;
   border: 3px solid #ccc;
   color: #ccc;
-  
 }
 
 a.router-link-exact-active {
@@ -384,7 +399,6 @@ h3 {
     width: 45rem;
   }
 
-
   h2 {
     font-size: 3rem;
     font-weight: bold;
@@ -415,7 +429,6 @@ h3 {
     width: 40rem;
   }
 
-
   h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -426,13 +439,13 @@ h3 {
   }
 
   .btmbox .balance {
-  width: 21rem;
-  height: 5rem;
-  background: rgba(15, 15, 33, 0.8);
-  font-size: 1.6rem;
-  padding: 0.5rem 1rem;
-  margin-bottom: 2rem;
-}
+    width: 21rem;
+    height: 5rem;
+    background: rgba(15, 15, 33, 0.8);
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+  }
 
   .btmbox .depositbox {
     height: 31rem;
