@@ -167,7 +167,11 @@
         <small>Tutorial</small>
       </div>
     </div>
-    <MakeDeposit v-if="depositDialog"></MakeDeposit>
+    <MakeDeposit
+      @remove-deposit-modal="handleDepositModal"
+      :toggleDepositInput="depositDialog"
+      v-if="depositDialog"
+    ></MakeDeposit>
     <p class="footer">C2024 fidelity broker corps.</p>
   </section>
 </template>
@@ -175,7 +179,7 @@
 <script setup>
 import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
-import {ref, reactive } from "vue";
+import { ref, reactive } from "vue";
 import MakeDeposit from "../components/MakeDeposit.vue";
 
 const deposit = reactive({
@@ -185,20 +189,20 @@ const deposit = reactive({
   depositStatus: "",
 });
 
-const depositDialog = ref(false)
+const depositDialog = ref(false);
 
 // const currentDate = new Date();
 // const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')} ${String(currentDate.getHours()).padStart(2, '0')}:${String(currentDate.getMinutes()).padStart(2, '0')}:${String(currentDate.getSeconds()).padStart(2, '0')}`;
 
-
 console.log(deposit.depositDate);
 
 const handleDepositInput = () => {
-    depositDialog.value = true;
+  return (depositDialog.value = true);
+};
 
-}
-
-
+const handleDepositModal = () => {
+  return (depositDialog.value = false);
+};
 </script>
 
 <style scoped>
