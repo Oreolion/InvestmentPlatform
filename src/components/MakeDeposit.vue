@@ -15,26 +15,35 @@
       <form action="">
         <label class="ammount">
           Amount in base currency:
-          <input type="text" v-model="deposit.amount" /> <span>$</span>
+          <input type="text" v-model="myDeposit.ammount" /> <span>$</span>
         </label>
       </form>
 
       <label for="address">Send your Deposit to the following address:</label>
       <br />
       <input type="text" v-model="bitcoinAddress" />
-      <button>Click to proceed after Deposit is complete and processed</button>
+      <button @click="handleCreateDeposit">Only Click to proceed after your Deposit is complete and processed...</button>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, reactive, defineEmits } from "vue";
+import { ref, reactive, inject } from "vue";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../utils/firebase";
 
-const currentDate = new Date();
+
+const myDeposit = inject("deposit")
+
+console.log(myDeposit)
+console.log(myDeposit.depositDate)
+console.log(myDeposit.depositCurrency)
+
+
 const deposit = reactive({
-  amount: "",
-  depositDate: currentDate.toISOString(),
-  depositCurrency: "Bitcoin",
+  ammount: myDeposit.ammount,
+  depositDate: myDeposit.depositDate,
+  depositCurrency: myDeposit.depositCurrency,
   depositAddress: "bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g",
   depositStatus: "pending",
 });
@@ -54,6 +63,32 @@ function closeModal() {
 }
 
 const bitcoinAddress = ref("bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g");
+
+
+const createDeposit = async (data) => {
+  try {
+    await setDoc(doc(db, "deposits", data.ammount), { ...data });
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const  handleCreateDeposit = async () => {
+    await createDeposit({
+        depositCurrency: deposit.depositCurrency,
+        ammount: deposit.ammount,
+        depositDate: deposit.depositDate,
+        depositStatus: deposit.depositStatus,
+        depositAddress: deposit.depositAddress,
+      });
+
+}
+
+
+
+
+
 </script>
 
 <style scoped>

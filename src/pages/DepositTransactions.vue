@@ -24,10 +24,10 @@
             <p>STATUS</p>
             <p>CREATED</p>
           </div>
-          <div>
-            <p>{{}}</p>
-            <p>{{ deposit.amount }}</p>
-            <p>{{}}</p>
+          <div v-for="deposit in userDeposits" :key="deposit.ammount">
+            <p>{{ deposit.depositCurrency }}</p>
+            <p>$ {{ deposit.ammount.concat(".00") }}</p>
+            <p>{{ deposit.depositStatus }}</p>
             <p>{{ deposit.depositDate }}</p>
           </div>
         </div>
@@ -41,12 +41,30 @@
 <script setup>
 import HeaderAndNav from "../components/HeaderAndNav.vue";
 import DashboardNav from "../components/DashboardNav.vue";
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../utils/firebase";
 
-const deposit = reactive({
-  amount: "",
-  depositDate: "",
-  depositCurrency: "",
+let userDeposits = reactive([]);
+
+const handleUpdateDeposits = async () => {
+  const postRef = collection(db, "deposits");
+
+  // Get initial data
+  const querySnapshot = await getDocs(postRef);
+  console.log(querySnapshot);
+
+  if (querySnapshot) {
+    querySnapshot.docs.map((doc) => {
+      userDeposits.push(doc.data());
+    });
+    console.log(userDeposits);
+  } else {
+    console.log("No such document!");
+  }
+};
+onMounted(async () => {
+  return await handleUpdateDeposits();
 });
 </script>
 
@@ -134,7 +152,9 @@ a.router-link-exact-active {
 }
 
 .dashboard__data .data__container {
+  background-color: rgba(9, 36, 119, 0.6);
   padding-top: 2rem;
+  min-height: 37rem;
 }
 
 .dashboard__data .data__container div {
@@ -144,16 +164,39 @@ a.router-link-exact-active {
   background-color: rgba(9, 36, 119, 0.6);
   color: var(--primary);
   width: 80rem;
-  height: 17rem;
+  height: 7rem;
   justify-content: space-evenly;
   border-right: 3px solid #f9a23f;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
+.dashboard__data .data__container div {
+  border-bottom: 4px solid #e67e22;
+}
+.dashboard__data .data__container div p {
+  border-right: 4px solid #e67e22;
+}
+
+.dashboard__data .data__container div p:last-child {
+  border-right: none;
+}
+.dashboard__data .data__container div:first-child {
+  border-bottom: 1rem solid #e67e22;
+}
+.dashboard__data .data__container div:first-child p:first-child {
+  padding-right: 12.3rem;
+}
+
 .dashboard__data .data__container div:first-child p {
+  white-space: nowrap;
   font-weight: bold;
   font-size: 1.8rem;
+  width: 9rem;
+}
+.dashboard__data .data__container div:nth-child(2) p {
+  font-size: 1.8rem;
+  width: 9rem;
 }
 
 .footer {

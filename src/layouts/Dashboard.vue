@@ -108,7 +108,7 @@ import { auth } from "../utils/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../utils/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { reactive, onMounted, computed } from "vue";
+import { reactive, onMounted } from "vue";
 
 const profile = reactive({});
 
