@@ -78,7 +78,7 @@
           </svg>
 
           <p>Registered Date:</p>
-          <h2>{{ new Date().toLocaleDateString() }}</h2>
+          <h2>{{ new Date().toISOString() }}</h2>
           <p>Account Registered Date</p>
         </div>
       </div>
