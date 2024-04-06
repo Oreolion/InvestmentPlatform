@@ -3,9 +3,13 @@
   <HeaderAndNav></HeaderAndNav>
   <section>
     <div class="topbox">
-        <div class="btnbox">
-        <router-link to="/dashboard/depositfunds" class="button">Account Funding</router-link>
-        <router-link to="/dashboard/withdrawfunds" class="button">Withdrawal</router-link>
+      <div class="btnbox">
+        <router-link to="/dashboard/depositfunds" class="button"
+          >Account Funding</router-link
+        >
+        <router-link to="/dashboard/withdrawfunds" class="button"
+          >Withdrawal</router-link
+        >
       </div>
       <h2>Withdraw Funds</h2>
     </div>
@@ -58,8 +62,24 @@
       <div class="depositbox">
         <div class="left">
           <button>I have a Bitcoin account</button>
-          <p>Open a coinbase acccount</p>
-          <p>Open a blockchain acccount</p>
+          <p>
+            Open a
+            <a
+              href="https://accounts.coinbase.com/pick-your-account?origin=coinbase.com"
+              target="_blank"
+              style="color: inherit"
+              >Coinbase acccount</a
+            >
+          </p>
+          <p>
+            Open a
+            <a
+              href="https://login.blockchain.com/#/signup?product=exchange&"
+              target="_blank"
+              style="color: inherit"
+              >Blockchain acccount</a
+            >
+          </p>
         </div>
         <div class="right">
           <h3>Bitcoin Withdrawal</h3>
@@ -362,7 +382,7 @@ h3 {
 }
 
 @media (max-width: 320px) {
-    .topbox {
+  .topbox {
     width: 40rem;
   }
 
@@ -382,6 +402,5 @@ h3 {
     display: flex;
     height: 5rem;
   }
-
 }
 </style>

@@ -23,7 +23,9 @@
           trading ecosystem that enables clients to achieve their own success,
           in a faster and simpler manner.
         </p>
-        <button>Know more about us</button>
+        <button>
+            <router-link class="link" to="/about">Know more about us</router-link>
+           </button>
       </div>
     </div>
   </section>
@@ -79,6 +81,12 @@ section {
     background: transparent;
     color: rgba(1, 68, 119, 0.6);
   }
+}
+
+.link {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.9rem;
 }
 
 @media (max-width: 768px) {

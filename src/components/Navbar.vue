@@ -219,6 +219,13 @@ svg {
   }
 }
 
+
+a.router-link-exact-active {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 6px solid #e67e22;
+  padding: 0.3rem;
+}
+
 @media (max-width: 767px) {
   .header {
     padding: 1.2rem 4%;

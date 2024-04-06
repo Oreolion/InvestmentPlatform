@@ -32,7 +32,9 @@
           ><span>Easy to use Dashboard</span>
         </li>
       </ul>
-      <button>Know more</button>
+      <button>
+        <router-link class="link" to="/about">Know more</router-link>
+        </button>
     </div>
     <div class="rightbox">
       <div class="box">
@@ -164,6 +166,12 @@ svg {
 }
 .rightbox .box p {
   font-size: 2rem;
+}
+
+.link {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.9rem;
 }
 
 @media (max-width: 768px) {

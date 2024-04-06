@@ -163,8 +163,10 @@
           <input type="text" v-model="deposit.ammount" /> <span>$</span>
         </label>
         <button @click="handleDepositInput">Fund Account</button>
-        <p>How to buy Bitcoin from our official patner at Bitcoin.com</p>
-        <small>Tutorial</small>
+        <p>
+          Buy Bitcoin from our official patner at
+          <a href="https://www.bitcoin.com/" target="_blank">Bitcoin.com</a>
+        </p>
       </div>
     </div>
     <MakeDeposit
@@ -184,12 +186,12 @@ import MakeDeposit from "../components/MakeDeposit.vue";
 
 const deposit = reactive({
   ammount: "",
-  depositDate: new Date().toISOString(),
+  depositDate: new Date().toISOString().slice(0, 10),
   depositCurrency: "Bitcoin",
   depositStatus: "",
 });
 
-provide("deposit", deposit)
+provide("deposit", deposit);
 
 const depositDialog = ref(false);
 

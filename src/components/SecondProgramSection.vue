@@ -23,7 +23,9 @@
           client funds in a segregated trust account, to ensure your money is
           protected.
         </p>
-        <button>Get Started</button>
+        <button>
+            <router-link class="link" to="/signup">Get Started</router-link>
+           </button>
       </div>
       <div class="right">
         <ul>
@@ -127,6 +129,12 @@ li {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.link {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.9rem;
 }
 
 p {

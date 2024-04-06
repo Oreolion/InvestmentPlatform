@@ -8,7 +8,9 @@
       </p>
     </div>
     <div class="right">
-      <button>Get Started</button>
+      <button>
+        <router-link class="link" to="/signup"> Get Started</router-link>
+       </button>
     </div>
   </section>
 </template>
@@ -26,6 +28,12 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 5rem;
+}
+
+.link {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 .left h2 {

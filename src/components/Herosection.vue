@@ -9,7 +9,9 @@
           a step towards your financial goals. We don’t just facilitate trades,
           we craft opportunities.</P
         >
-        <button>Start Investing</button>
+        <button> 
+            <router-link class="link" to="/signup">Start Investing</router-link>
+            </button>
         <div class="lowerbox">
           <div class="box">
             <h1>21M+</h1>
@@ -68,6 +70,12 @@ section {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   max-width: 65rem;
+}
+
+.link {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 .leftbox button {

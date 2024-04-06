@@ -78,7 +78,7 @@
           </svg>
 
           <p>Registered Date:</p>
-          <h2>{{ new Date().toISOString() }}</h2>
+          <h2>{{ setCreatedDate() }}</h2>
           <p>Account Registered Date</p>
         </div>
       </div>
@@ -133,6 +133,11 @@ const handleUpdateProfile = async () => {
     console.log("No such document!");
   }
 };
+
+function setCreatedDate () {
+    const date = new Date ()
+    return date.toISOString().slice(0, 10)
+}
 
 onMounted(async () => {
   return await handleUpdateProfile();
@@ -289,6 +294,14 @@ button:last-child {
 
   .dashboard .dashboard__info .inner-box {
     gap: 3rem;
+  }
+
+  .bottom__section {
+    margin-left: 0;
+  }
+
+  .bottom__section button {
+    margin-bottom: 2rem;
   }
 }
 
