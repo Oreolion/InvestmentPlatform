@@ -97,7 +97,7 @@ p {
   padding: 2rem;
   border: 1px solid #e67e22;
   border-radius: 3rem;
-  width: 45rem;
+  width: 48rem;
   height: 23rem;
 }
 

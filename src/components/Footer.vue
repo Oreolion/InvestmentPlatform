@@ -4,27 +4,36 @@
       <div class="logo link">
         <h3>FIDELITY <span>BROKER</span> CORPS</h3>
       </div>
-      <div class="box1">
-        <h5>Explore</h5>
-        <ul>
-          <li>Community</li>
-          <li>Trending Blogs</li>
-          <li>Read Along for teams</li>
-        </ul>
-      </div>
+
       <div class="box1">
         <h5>Support</h5>
         <ul>
-          <li>Support Docs</li>
-          <li>Join Slack</li>
-          <li>Contact</li>
+          <li>
+            <router-link class="link" to="/contact">Contact</router-link>
+          </li>
+          <li>
+            <router-link class="link" to="/program"
+              >Trading Programme</router-link
+            >
+          </li>
+
+          <li>
+            <router-link class="link" to="/howtobuy"
+              >How To Buy Crypto</router-link
+            >
+          </li>
         </ul>
       </div>
       <div class="box1">
-        <h5>Official Blog</h5>
+        <h5>About Us</h5>
         <ul>
-          <li>Official Blog</li>
-          <li>Engineering Blog</li>
+          <li>
+            <router-link class="link" to="/about">About</router-link>
+          </li>
+
+          <li>
+            <router-link class="link" to="/insight">Insight</router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -50,6 +59,15 @@
   font-size: 1.3rem;
   letter-spacing: 1px;
   padding-left: 4px;
+}
+
+.link {
+  color: #ccc;
+  font-weight: bold;
+  &:hover {
+    color: #e67e22;
+    letter-spacing: 1px;
+  }
 }
 
 h3 span {
