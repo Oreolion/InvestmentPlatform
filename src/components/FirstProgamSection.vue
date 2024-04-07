@@ -63,13 +63,13 @@ h4 {
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
   white-space: nowrap;
 }
 
 p {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
 }
 .topbox {
@@ -87,7 +87,7 @@ p {
 
 .innerbox {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
@@ -97,7 +97,7 @@ p {
   padding: 2rem;
   border: 1px solid #e67e22;
   border-radius: 3rem;
-  width: 48rem;
+  width: 45rem;
   height: 23rem;
 }
 
@@ -144,9 +144,8 @@ p {
   }
 
   .box {
-
-  width: 32rem;
-  height: 23rem;
-}
+    width: 32rem;
+    height: 23rem;
+  }
 }
 </style>
