@@ -19,10 +19,22 @@
         </label>
       </form>
 
-      <label for="address">Send your Deposit to the following address:</label>
+      <label for="address"
+        >Send your Deposit to the following address or scan the barcode
+        below:</label
+      >
       <br />
       <input type="text" v-model="bitcoinAddress" />
-      <button @click="handleCreateDeposit">Only Click to proceed after your Deposit is complete and processed...</button>
+      <small class="note">Make sure to copy the address above correctly</small>
+      <small>or scan the following barcode</small> <br />
+      <div class="barcode__img">
+        <img src="../assets/barcode.jpg" alt="" />
+      </div>
+
+      <small style="text-align: center;">
+        Only Click to proceed after your Deposit is complete and processed...
+      </small>
+      <button @click="handleCreateDeposit">Proceed to complete deposit</button>
     </div>
   </section>
 </template>
@@ -32,13 +44,11 @@ import { ref, reactive, inject } from "vue";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebase";
 
+const myDeposit = inject("deposit");
 
-const myDeposit = inject("deposit")
-
-console.log(myDeposit)
-console.log(myDeposit.depositDate)
-console.log(myDeposit.depositCurrency)
-
+console.log(myDeposit);
+console.log(myDeposit.depositDate);
+console.log(myDeposit.depositCurrency);
 
 const deposit = reactive({
   ammount: myDeposit.ammount,
@@ -59,11 +69,10 @@ let props = defineProps({
 function closeModal() {
   emit("removeDepositModal", closeInput);
   !props.toggleDepositInput;
-  return closeInput.value = !closeInput.value;
+  return (closeInput.value = !closeInput.value);
 }
 
 const bitcoinAddress = ref("bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g");
-
 
 const createDeposit = async (data) => {
   try {
@@ -74,27 +83,21 @@ const createDeposit = async (data) => {
   }
 };
 
-const  handleCreateDeposit = async () => {
-    await createDeposit({
-        depositCurrency: deposit.depositCurrency,
-        ammount: deposit.ammount,
-        depositDate: deposit.depositDate,
-        depositStatus: deposit.depositStatus,
-        depositAddress: deposit.depositAddress,
-      });
-
-}
-
-
-
-
-
+const handleCreateDeposit = async () => {
+  await createDeposit({
+    depositCurrency: deposit.depositCurrency,
+    ammount: deposit.ammount,
+    depositDate: deposit.depositDate,
+    depositStatus: deposit.depositStatus,
+    depositAddress: deposit.depositAddress,
+  });
+};
 </script>
 
 <style scoped>
 section {
   position: absolute;
-  top: 30%;
+  top: 15%;
   right: 10%;
   left: 10%;
   display: flex;
@@ -105,7 +108,7 @@ section {
 
 .inner__container {
   width: 80rem;
-  height: 40rem;
+  height: 55rem;
   background: rgba(225, 225, 225, 0.9);
   display: flex;
   flex-direction: column;
@@ -127,6 +130,28 @@ label span {
   color: green;
 }
 
+.barcode__img {
+  height: 20rem;
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+.barcode__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+small {
+  color: red;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.note {
+  margin-bottom: 2rem;
+}
+
 .close__modal {
   cursor: pointer;
   height: 3rem;
@@ -144,7 +169,6 @@ label span {
   text-align: center;
   font-size: 1.7rem;
   width: 80%;
-  margin-bottom: 2rem;
 }
 
 input {
@@ -161,6 +185,66 @@ button {
   color: green;
   &:hover {
     opacity: 0.7;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    top: 15%;
+    left: 15%;
+  }
+
+  .inner__container {
+    width: 80rem;
+    height: 55rem;
+    padding: 0 3rem;
+    z-index: 1111;
+  }
+
+  .note {
+    margin-bottom: 1rem;
+  }
+
+  form {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  form + label {
+    font-size: 1.4rem;
+  }
+
+  label {
+    font-size: 1.7rem;
+  }
+
+  .inner__container > input {
+    background-color: #999;
+    text-align: left;
+    text-indent: 0.3rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  input {
+    height: 3rem;
+    font-size: 1.7rem;
+    text-indent: 1rem;
+  }
+  small {
+    font-size: 1rem;
+  }
+
+  button {
+    font-weight: normal;
+    font-size: 1.4rem;
+    width: 83%;
+  }
+
+  .close__modal {
+    top: 4%;
+    left: 10%;
   }
 }
 </style>
