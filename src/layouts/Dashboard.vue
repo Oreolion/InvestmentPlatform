@@ -20,7 +20,7 @@
                 d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
               />
             </svg>
-            <span>Username: {{ userProfile.firstname }}</span>
+            <span>Username: {{ userProfile.displayName }}</span>
           </p>
           <p>
             <svg
@@ -32,7 +32,7 @@
                 d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
               />
             </svg>
-            <span>Email: {{ profile.email }}</span>
+            <span>{{ profile.email }}</span>
           </p>
         </div>
       </div>
@@ -78,7 +78,7 @@
           </svg>
 
           <p>Registered Date:</p>
-          <h2>{{ setCreatedDate() }}</h2>
+          <h2>{{ userProfile.registeredDate }}</h2>
           <p>Account Registered Date</p>
         </div>
       </div>
@@ -123,21 +123,20 @@ const handleUpdateProfile = async () => {
   console.log(querySnapshot);
 
   if (querySnapshot) {
-    querySnapshot.docs.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-      //   userProfile = doc.data();
-      userProfile.firstname = doc.data().firstname;
-      userProfile.lastname = doc.data().lastname;
+    querySnapshot.docs.filter((doc) => {
+      if (doc.id === profile.userId) {
+        console.log(doc.id, " => ", doc.data());
+        userProfile.firstname = doc.data().firstname;
+        userProfile.lastname = doc.data().lastname;
+        userProfile.displayName = doc.data().displayName;
+        userProfile.registeredDate = doc.data().registeredDate;
+      }
     });
   } else {
     console.log("No such document!");
   }
 };
 
-function setCreatedDate () {
-    const date = new Date ()
-    return date.toISOString().slice(0, 10)
-}
 
 onMounted(async () => {
   return await handleUpdateProfile();
@@ -147,6 +146,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     profile.email = user.email ?? "";
     profile.displayName = user.displayName ?? "";
+    profile.userId = user.uid ?? "";
   }
 });
 </script>

@@ -31,7 +31,7 @@
         <img src="../assets/barcode.jpg" alt="" />
       </div>
 
-      <small style="text-align: center;">
+      <small style="text-align: center">
         Only Click to proceed after your Deposit is complete and processed...
       </small>
       <button @click="handleCreateDeposit">Proceed to complete deposit</button>
@@ -198,7 +198,6 @@ button {
     width: 80rem;
     height: 55rem;
     padding: 0 3rem;
-    z-index: 1111;
   }
 
   .note {
@@ -245,6 +244,52 @@ button {
   .close__modal {
     top: 4%;
     left: 10%;
+  }
+}
+
+@media (max-width: 320px) {
+  section {
+    top: 7%;
+    left: 15%;
+    right: 6%;
+    z-index: 111;
+  }
+
+  .inner__container {
+    margin-top: -4rem;
+  }
+
+  input {
+    width: 70%;
+  }
+  form {
+    margin-top: 0.5rem;
+  }
+
+  .barcode__img {
+    height: 17rem;
+    width: 17rem;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+  }
+
+  form + label {
+    font-size: 1.1rem;
+  }
+
+  label {
+    font-size: 1.3rem;
+  }
+
+  .close__modal {
+    z-index: 111;
+  }
+
+  .note {
+    margin-bottom: 0.5rem;
   }
 }
 </style>

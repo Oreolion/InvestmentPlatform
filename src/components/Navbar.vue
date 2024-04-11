@@ -153,7 +153,7 @@ h3 span {
 
 .mobile__nav {
   background-color: rgba(350, 350, 350, 0.8);
-  width: 34rem;
+  width: 56rem;
   height: 100vh;
   position: absolute;
   display: none;
@@ -168,7 +168,7 @@ h3 span {
 .mobile__nav .li {
   margin-bottom: 2rem;
   color: #000;
-  font-size: 1.6rem;
+  font-size: 2.3rem;
   font-weight: bold;
   &:hover {
     color: #e67e22;
@@ -312,8 +312,7 @@ a.router-link-exact-active {
     /* text-align: left; */
   }
   .mobile__nav {
-    width: 24rem;
-    width: 18rem;
+    width: 28rem;
   }
 
   .navlist li:nth-child(4) {

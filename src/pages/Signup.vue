@@ -195,8 +195,10 @@ const handleSignUp = async () => {
         userId: response.user.uid,
         firstname: user.firstname,
         lastname: user.lastname,
+        displayName: user.displayName,
         country: user.country,
         phoneNumber: user.phoneNumber,
+        registeredDate: setRegisteredDate(),
       });
 
       router.push("/dashboard");
@@ -207,6 +209,11 @@ const handleSignUp = async () => {
     toast.error(error.message);
   }
 };
+
+const setRegisteredDate = () => {
+    const date = new Date().toISOString().slice(0, 10)
+    return date
+}
 
 const createUser = async (data) => {
   try {

@@ -114,7 +114,7 @@ const handleSignOut = async () => {
   try {
     await signOut(getAuth());
     localStorage.clear();
-    router.push("/login");
+    await router.push("/login");
     toast.success("You are Logged Out", {
       autoClose: 8000,
     });
@@ -155,12 +155,12 @@ h3 span {
   top: 0;
   left: 0;
   padding: 2rem 3rem;
-  width: 29rem;
+  width: 27rem;
   height: 100vh;
   background-color: rgb(5, 118, 319);
   background: #1e4274;
   color: #ccc;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,7 +207,7 @@ nav ul li a.router-link-exact-active {
   white-space: nowrap;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   color: #ddd;
   &:hover {
     letter-spacing: 1px;

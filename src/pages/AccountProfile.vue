@@ -32,7 +32,7 @@
         <label for="username">
           <input
             type="text"
-            v-model="profile.displayName"
+            v-model="userProfile.displayName"
             placeholder="Username here"
           />
         </label>
@@ -51,7 +51,11 @@
           />
         </label>
         <label for="phone">
-          <input v-model="userProfile.phoneNumber" type="tel" placeholder="phone number here" />
+          <input
+            v-model="userProfile.phoneNumber"
+            type="tel"
+            placeholder="phone number here"
+          />
         </label>
         <h2>Account Verification</h2>
         <p>
@@ -86,8 +90,7 @@ import DashboardNav from "../components/DashboardNav.vue";
 import HeaderAndNav from "../components/HeaderAndNav.vue";
 
 let userProfile = reactive({});
-const profile = reactive({})
-
+const profile = reactive({});
 
 const handleUpdateProfile = async () => {
   const postRef = collection(db, "users");
@@ -97,17 +100,19 @@ const handleUpdateProfile = async () => {
   const querySnapshot = await getDocs(postRef);
 
   if (querySnapshot) {
-    querySnapshot.docs.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-       userProfile.firstname = doc.data().firstname;
-       userProfile.lastname = doc.data().lastname;
-       userProfile.phoneNumber = doc.data().phoneNumber;
-       userProfile.country = doc.data().country;
+    querySnapshot.docs.filter((doc) => {
+      if (doc.id === profile.userId) {
+        console.log(doc.id, " => ", doc.data());
+        userProfile.firstname = doc.data().firstname;
+        userProfile.lastname = doc.data().lastname;
+        userProfile.phoneNumber = doc.data().phoneNumber;
+        userProfile.country = doc.data().country;
+        userProfile.displayName = doc.data().displayName;
+      }
     });
   } else {
     console.log("No such document!");
   }
-
 };
 
 onMounted(async () => {
@@ -116,13 +121,15 @@ onMounted(async () => {
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    console.log(user);
+    console.log(user.displayName);
+    console.log(user.email);
+    console.log(user.uid);
     profile.email = user.email ?? "";
     profile.displayName = user.displayName ?? "";
+    profile.userId = user.uid ?? "";
   }
 });
-
-
-
 </script>
 
 <style scoped>

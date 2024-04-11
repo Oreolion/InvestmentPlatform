@@ -29,14 +29,15 @@ import { MarketOverview } from "vue-tradingview-widgets";
   background-color: rgb(28, 28, 36);
   display: flex;
   position: relative;
-  height: 95vh;
+  height: 100vh;
 }
 
 .chart1 {
   flex: 1 1 55%;
 }
 .chart2 {
-  flex: 1 1 20rem;
+  flex: 1 1 18rem;
+  width: 25rem;
   position: absolute;
   right: -1%;
   top: 0;

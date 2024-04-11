@@ -205,9 +205,9 @@ const handleSignOut = async () => {
   try {
     await signOut(getAuth());
     localStorage.clear();
-    router.push("/login");
+    await router.push("/login");
     toast.success("You are Logged Out", {
-      autoClose: 8000,
+      autoClose: 5000,
     });
   } catch (error) {
     console.log(error);
@@ -262,11 +262,11 @@ h3 span {
   top: 0;
   left: 0;
   padding: 3rem;
-  width: 28rem;
+  width: 27rem;
   height: 100vh;
   background-color: #1e4274;
   color: #ccc;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -312,7 +312,7 @@ h3 span {
   padding: 1rem;
   color: #ddd;
   font-weight: bold;
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   &:hover {
     letter-spacing: 2px;
   }
