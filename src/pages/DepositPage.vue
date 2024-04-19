@@ -247,11 +247,14 @@ section {
 h2 {
   font-size: 5rem;
   font-weight: bold;
+  margin-left: -25rem;
+
 }
 
 .topbox .btnbox {
   padding-top: 33rem;
   margin-bottom: 5rem;
+  margin-left: -25rem;
   display: flex;
 }
 
@@ -311,9 +314,9 @@ h3 {
 }
 
 .items .box {
-  height: 14rem;
+  height: 12rem;
   flex: 1 1 14rem;
-  width: 14rem;
+  width: 12rem;
   border: 5px solid rgb(28, 28, 36);
   border-bottom: 5px solid #ccc;
   display: flex;
@@ -328,7 +331,7 @@ h3 {
   color: green;
   background: aqua;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -337,12 +340,12 @@ h3 {
 }
 
 .items .box p {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 .items .box .img {
-  height: 6rem;
-  width: 6rem;
+  height: 4.5rem;
+  width: 4.5rem;
   margin-bottom: 3rem;
 }
 
@@ -400,7 +403,7 @@ h3 {
   }
 
   .btmbox .items {
-    height: 29rem;
+    height: 36rem;
   }
 }
 
@@ -412,11 +415,16 @@ h3 {
   h2 {
     font-size: 3rem;
     font-weight: bold;
+    margin-left: 0;
   }
-
+    
   .topbox .btnbox {
     padding-top: 28rem;
+    margin-left: 0;
   }
+  
+
+
 
   .button {
     width: 18rem;

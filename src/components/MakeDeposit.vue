@@ -24,8 +24,7 @@
         below:</label
       >
       <br />
-      <input type="text" v-model="bitcoinAddress" />
-      <small class="note">Make sure to copy the address above correctly</small>
+      <input type="text" v-model="bitcoinAddress" /> <button class="btn" @click="copyToClipBoard">click here copy address</button>
       <small>or scan the following barcode</small> <br />
       <div class="barcode__img">
         <img src="../assets/barcode.jpg" alt="" />
@@ -45,10 +44,13 @@ import { setDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebase";
 
 const myDeposit = inject("deposit");
+const bitcoinAddress = ref("bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g");
+
 
 console.log(myDeposit);
-console.log(myDeposit.depositDate);
-console.log(myDeposit.depositCurrency);
+
+
+
 
 const deposit = reactive({
   ammount: myDeposit.ammount,
@@ -72,7 +74,6 @@ function closeModal() {
   return (closeInput.value = !closeInput.value);
 }
 
-const bitcoinAddress = ref("bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g");
 
 const createDeposit = async (data) => {
   try {
@@ -81,6 +82,10 @@ const createDeposit = async (data) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const copyToClipBoard = () => {
+   navigator.clipboard.writeText(bitcoinAddress.value);
 };
 
 const handleCreateDeposit = async () => {
@@ -97,7 +102,7 @@ const handleCreateDeposit = async () => {
 <style scoped>
 section {
   position: absolute;
-  top: 15%;
+  top: 10%;
   right: 10%;
   left: 10%;
   display: flex;
@@ -117,16 +122,16 @@ section {
 }
 
 form {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 label {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 label span {
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: green;
 }
 
@@ -149,15 +154,15 @@ small {
 }
 
 .note {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .close__modal {
   cursor: pointer;
   height: 3rem;
   position: absolute;
-  top: 8%;
-  left: 16%;
+  top: 4%;
+  left: 12%;
   width: 3rem;
   &:hover {
     fill: red;
@@ -167,13 +172,13 @@ small {
 .inner__container > input {
   background-color: #999;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   width: 80%;
 }
 
 input {
   height: 4rem;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   text-indent: 1rem;
 }
 
@@ -186,6 +191,18 @@ button {
   &:hover {
     opacity: 0.7;
   }
+}
+
+.btn {
+    width: 40%;
+    height: 2rem;
+    padding: .3rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    &:hover {
+        border: 0;
+    }
 }
 
 @media (max-width: 480px) {

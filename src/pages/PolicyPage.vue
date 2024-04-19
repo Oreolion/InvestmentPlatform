@@ -134,11 +134,14 @@ section {
 h2 {
   font-size: 5rem;
   font-weight: bold;
+  margin-left: -25rem;
 }
 
 .topbox .btnbox {
   padding-top: 22rem;
   margin-bottom: 5rem;
+  margin-left: -25rem;
+
   display: flex;
 }
 
@@ -214,9 +217,14 @@ br {
     width: 45rem;
   }
 
+  .topbox .btnbox {
+    margin-left: 0;
+  }
+
   h2 {
     font-size: 3rem;
     font-weight: bold;
+    margin-left: 0;
   }
 
   .button {

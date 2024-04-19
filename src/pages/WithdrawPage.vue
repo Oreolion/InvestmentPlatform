@@ -147,11 +147,13 @@ section {
 h2 {
   font-size: 5rem;
   font-weight: bold;
+  margin-left: -25rem;
 }
 
 .topbox .btnbox {
   padding-top: 33rem;
   margin-bottom: 5rem;
+  margin-left: -25rem;
   display: flex;
 }
 
@@ -347,10 +349,12 @@ h3 {
   h2 {
     font-size: 3rem;
     font-weight: bold;
+    margin-left: 0;
   }
 
   .topbox .btnbox {
     padding-top: 28rem;
+    margin-left: 0;
   }
 
   .button {
