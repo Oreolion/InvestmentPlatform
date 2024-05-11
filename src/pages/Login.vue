@@ -103,7 +103,7 @@ const handleLogin = async () => {
 
       await router.push("/dashboard", { ...history.state });
       toast.success("You are Logged In", {
-        autoClose: 8000,
+        autoClose: 4000,
       });
     }
   } catch (error) {

@@ -44,25 +44,39 @@ import DashboardNav from "../components/DashboardNav.vue";
 import { reactive, onMounted } from "vue";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../utils/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 let userDeposits = reactive([]);
+const profile = reactive({});
 
 const handleUpdateDeposits = async () => {
   const postRef = collection(db, "deposits");
 
   // Get initial data
   const querySnapshot = await getDocs(postRef);
-  console.log(querySnapshot);
 
   if (querySnapshot) {
-    querySnapshot.docs.map((doc) => {
-      userDeposits.push(doc.data());
+    querySnapshot.docs.filter((doc) => {
+        const data = doc.data()
+      if (data.depositUserId === profile.userId) {
+        console.log(data.depositUserId, " => ", data);
+        userDeposits.push(data);
+      } else {
+        console.log("No such document!");
+      }
     });
-    console.log(userDeposits);
-  } else {
-    console.log("No such document!");
   }
 };
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    profile.email = user.email ?? "";
+    profile.displayName = user.displayName ?? "";
+    profile.userId = user.uid ?? "";
+  }
+});
+
 onMounted(async () => {
   return await handleUpdateDeposits();
 });
@@ -107,7 +121,6 @@ h2 {
   font-size: 5rem;
   font-weight: bold;
   margin-left: -25rem;
-
 }
 
 .topbox .btnbox {

@@ -24,7 +24,10 @@
         below:</label
       >
       <br />
-      <input type="text" v-model="bitcoinAddress" /> <button class="btn" @click="copyToClipBoard">click here copy address</button>
+      <input type="text" v-model="bitcoinAddress" />
+      <button class="btn" @click="copyToClipBoard">
+        click here copy address
+      </button>
       <small>or scan the following barcode</small> <br />
       <div class="barcode__img">
         <img src="../assets/barcode.jpg" alt="" />
@@ -42,15 +45,24 @@
 import { ref, reactive, inject } from "vue";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebase";
+import { auth } from "../utils/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { toast } from "vue3-toastify";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    profile.email = user.email ?? "";
+    profile.displayName = user.displayName ?? "";
+    profile.userId = user.uid ?? "";
+  }
+});
+
+const profile = reactive({});
 
 const myDeposit = inject("deposit");
 const bitcoinAddress = ref("bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g");
 
-
 console.log(myDeposit);
-
-
-
 
 const deposit = reactive({
   ammount: myDeposit.ammount,
@@ -58,6 +70,7 @@ const deposit = reactive({
   depositCurrency: myDeposit.depositCurrency,
   depositAddress: "bc1qhahtqk4egme0qkqh72td5n609tx8up6m6lga6g",
   depositStatus: "pending",
+  depositUserId: profile.userId,
 });
 
 const emit = defineEmits(["removeDepositModal"]);
@@ -74,7 +87,6 @@ function closeModal() {
   return (closeInput.value = !closeInput.value);
 }
 
-
 const createDeposit = async (data) => {
   try {
     await setDoc(doc(db, "deposits", data.ammount), { ...data });
@@ -85,17 +97,26 @@ const createDeposit = async (data) => {
 };
 
 const copyToClipBoard = () => {
-   navigator.clipboard.writeText(bitcoinAddress.value);
+  navigator.clipboard.writeText(bitcoinAddress.value);
 };
 
+
+
 const handleCreateDeposit = async () => {
+    deposit.depositUserId = profile.userId;
+
   await createDeposit({
     depositCurrency: deposit.depositCurrency,
     ammount: deposit.ammount,
     depositDate: deposit.depositDate,
     depositStatus: deposit.depositStatus,
     depositAddress: deposit.depositAddress,
+    depositUserId: deposit.depositUserId,
   });
+  closeModal();
+  toast.success("You Just Made a new Deposit!", {
+        autoClose: 4000,
+      });
 };
 </script>
 
@@ -194,15 +215,15 @@ button {
 }
 
 .btn {
-    width: 40%;
-    height: 2rem;
-    padding: .3rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    &:hover {
-        border: 0;
-    }
+  width: 40%;
+  height: 2rem;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  &:hover {
+    border: 0;
+  }
 }
 
 @media (max-width: 480px) {
