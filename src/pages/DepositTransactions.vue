@@ -34,7 +34,7 @@
       </main>
     </div>
 
-    <p class="footer">C2024 fidelity broker corps.</p>
+    <p class="footer">© 2024 fidelity broker corps.</p>
   </section>
 </template>
 
