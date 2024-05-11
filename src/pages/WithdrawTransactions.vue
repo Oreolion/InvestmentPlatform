@@ -16,20 +16,24 @@
     <div class="btmbox">
       <main class="dashboard__data">
         <h1>Deposit History</h1>
-        <div class="data__container">
-          <div>
-            <p>DEPOSIT PLAN</p>
-            <p>AMOUNT</p>
-            <p>STATUS</p>
-            <p>CREATED</p>
-          </div>
-          <div>
-              <p>{{  }}</p>
-              <p>{{ withdraw.amount }}</p>
-            <p>{{  }}</p>
-            <p>{{ withdraw.withdrawDate }}</p>
-          </div>
-        </div>
+        <table class="data__container">
+          <thead>
+            <tr>
+              <th scope="col">DEPOSIT PLAN</th>
+              <th scope="col">AMOUNT</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">CREATED</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="deposit in userDeposits" :key="deposit.ammount">
+              <th scope="col">{{ deposit.depositCurrency }}</th>
+              <th scope="col">$ {{ deposit.ammount.concat(".00") }}</th>
+              <th scope="col">{{ deposit.depositStatus }}</th>
+              <th scope="col">{{ deposit.depositDate }}</th>
+            </tr>
+          </tbody>
+        </table>
       </main>
     </div>
     <p class="footer">C2024 fidelity broker corps.</p>
@@ -135,6 +139,42 @@ a.router-link-exact-active {
   margin-bottom: 4rem;
 }
 
+/* table */
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  min-width: 30rem;
+  width: 75rem;
+  color: #e67e22;
+}
+
+
+thead {
+  background-color: rgb(228 240 245);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+
+
+tbody {
+    font-size: 1.8rem;
+}
+
+tbody > tr:nth-of-type(even) {
+  background-color: rgb(237 238 242);
+}
+
+
 .dashboard__data .data__container {
   padding-top: 2rem;
 }
@@ -189,6 +229,10 @@ a.router-link-exact-active {
   .dashboard__data .data__container div p {
     margin-bottom: 4px;
   }
+
+  table {
+    width: 52rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -213,6 +257,10 @@ a.router-link-exact-active {
     display: flex;
     height: 5rem;
   }
+
+  table {
+    width: 42rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -236,6 +284,10 @@ a.router-link-exact-active {
     font-size: 1.3rem;
     display: flex;
     height: 5rem;
+  }
+
+  table {
+    width: 30rem;
   }
 
 }
