@@ -86,16 +86,28 @@
   </div>
   <TradingViewChart></TradingViewChart>
   <div class="bottom__section">
-    <button>
-      <router-link class="a" to="/dashboard/depositfunds">
-        Make a Deposit
-      </router-link>
-    </button>
-    <button>
-      <router-link class="a" to="/dashboard/withdrawfunds">
-        Make a Withdrawal
-      </router-link>
-    </button>
+    <div class="leftbtmbox">
+      <coingecko-coin-converter-widget class="convertwidget"
+        coin-id="bitcoin"
+        currency="usd"
+        background-color="#ffffff"
+        font-color="#4c4c4c"
+        locale="en"
+        width="140px"
+      ></coingecko-coin-converter-widget>
+    </div>
+    <div class="rightbtmbox">
+      <button>
+        <router-link class="a" to="/dashboard/depositfunds">
+          Make a Deposit
+        </router-link>
+      </button>
+      <button>
+        <router-link class="a" to="/dashboard/withdrawfunds">
+          Make a Withdrawal
+        </router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -136,7 +148,6 @@ const handleUpdateProfile = async () => {
     console.log("No such document!");
   }
 };
-
 
 onMounted(async () => {
   return await handleUpdateProfile();
@@ -251,11 +262,30 @@ svg {
 }
 
 .bottom__section {
-  height: 13rem;
+  /* height: 13rem; */
   margin-left: 28rem;
+  display: flex;
   background-color: rgb(28, 28, 36);
   padding: 2rem 7rem;
-  padding-bottom: 27rem;
+  gap: 3rem;
+  padding-top: 10rem;
+}
+
+.rightbtmbox {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1 1 50%;
+}
+
+.convertwidget {
+    min-width: 25rem;
+    width: 30rem;
+
+}
+.leftbtmbox {
+  flex: 1 1 50%;
+  width: 30rem;
 }
 
 button {
@@ -298,11 +328,11 @@ button:last-child {
 
   .bottom__section {
     margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .bottom__section button {
-    margin-bottom: 2rem;
-  }
 }
 
 @media (max-width: 480px) {
