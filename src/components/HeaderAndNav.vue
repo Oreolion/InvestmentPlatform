@@ -137,6 +137,7 @@
             class="notification-icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
+            @click="handleToggleNotification"
           >
             <path
               d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"
@@ -168,7 +169,7 @@
         </router-link>
       </div>
 
-      <div class="notificationbox" v-if="dropDown">
+      <div class="logoutbox" v-if="dropDown">
         <li @click="handleSignOut">
           <div class="link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -179,6 +180,11 @@
             <p>Logout</p>
           </div>
         </li>
+      </div>
+      <div class="notificationbox" v-if="toggleNotification">
+        <div>
+          <p>You currently have no notifications.</p>
+        </div>
       </div>
     </header>
   </main>
@@ -215,6 +221,7 @@ const handleSignOut = async () => {
 };
 
 let toggle = ref<boolean>(false);
+let toggleNotification = ref<boolean>(false);
 let dropDown = ref<boolean>(false);
 
 function toggleMenu() {
@@ -222,6 +229,9 @@ function toggleMenu() {
 }
 function toggleDropDown() {
   return (dropDown.value = !dropDown.value);
+}
+function handleToggleNotification() {
+  return (toggleNotification.value = !toggleNotification.value);
 }
 
 onAuthStateChanged(auth, (user) => {
@@ -398,6 +408,21 @@ nav ul li a.router-link-exact-active {
 }
 
 .notificationbox {
+  height: 12rem;
+  width: 22rem;
+  position: absolute;
+  color: #fff;
+  top: 10rem;
+  right: 17%;
+  background: rgba(0, 0, 015, 0.5);
+  z-index: 111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+.logoutbox {
   height: 6rem;
   width: 22rem;
   position: absolute;
@@ -412,18 +437,18 @@ nav ul li a.router-link-exact-active {
   list-style: none;
 }
 
-.notificationbox svg {
+.logoutbox svg {
   display: flex;
 }
 
-.notificationbox .link {
+.logoutbox .link {
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: center;
 }
 
-.notificationbox p {
+.logoutbox p {
   font-size: 1.4rem;
   font-weight: bold;
   margin-left: 0rem;
@@ -475,6 +500,9 @@ nav ul li a.router-link-exact-active {
   display: flex;
   height: 3rem;
   width: 3rem;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 .icons .menu-icon,
 .icons .close-icon {
@@ -491,11 +519,17 @@ nav ul li a.router-link-exact-active {
   display: none;
   align-items: center;
   justify-content: center;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .caret {
   display: inline-block;
   cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 svg {
@@ -505,49 +539,6 @@ svg {
   align-items: center;
   justify-content: center;
   fill: #e67e22;
-}
-
-.search-form {
-  position: absolute;
-  width: 46rem;
-  top: 25%;
-  right: 30%;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: #eee;
-  padding: 0.6rem;
-  border-radius: 0.6rem;
-  height: 5rem;
-}
-
-.search {
-  height: 4.5rem;
-  padding: 1rem;
-  width: 4.5rem;
-  text-align: center;
-  color: var(--black);
-  background-color: #eee;
-  border-radius: 50%;
-  margin-left: 0.7rem;
-  font-size: 1.7rem;
-  cursor: pointer;
-  &:hover {
-    background-color: rgba(0, 0, 05, 0.3);
-  }
-}
-
-.search-form .search svg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  fill: #e67e22;
-}
-
-.search-form input {
-  height: 4rem;
-  width: 80%;
-  padding: 1rem;
 }
 
 .header .img__box {
@@ -561,6 +552,9 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .img__box span {

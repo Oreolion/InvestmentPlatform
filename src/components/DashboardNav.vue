@@ -194,6 +194,11 @@ nav ul li a.router-link-exact-active {
   font-size: 1.6rem;
 }
 
+.user__info p:last-child {
+  color: green;
+  font-weight: bold;
+}
+
 .mobile {
   display: none;
 }
