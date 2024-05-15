@@ -182,9 +182,7 @@
         </li>
       </div>
       <div class="notificationbox" v-if="toggleNotification">
-        <div>
           <p>You currently have no notifications.</p>
-        </div>
       </div>
     </header>
   </main>
@@ -421,6 +419,10 @@ nav ul li a.router-link-exact-active {
   justify-content: center;
   padding: 2rem;
   text-align: center;
+}
+
+.notificationbox p {
+    margin-left: 0rem;
 }
 .logoutbox {
   height: 6rem;

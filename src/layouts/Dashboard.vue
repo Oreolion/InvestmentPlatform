@@ -262,8 +262,7 @@ svg {
 }
 
 .bottom__section {
-  /* height: 13rem; */
-  margin-left: 28rem;
+  margin-left: 26rem;
   display: flex;
   background-color: rgb(28, 28, 36);
   padding: 2rem 7rem;
